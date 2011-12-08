@@ -1,6 +1,8 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
+using Fifa.Models;
+
 namespace Fifa.Repositories
 {
     public class MainContext : DbContext
