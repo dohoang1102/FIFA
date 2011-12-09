@@ -2,6 +2,7 @@
 using System.Linq;
 
 using Fifa.Models;
+using System.Data;
 
 namespace Fifa.Repositories
 {
@@ -9,98 +10,174 @@ namespace Fifa.Repositories
     {
         public void DeleteComment(int id)
         {
-            throw new System.NotImplementedException();
+            var comment = GetComment(id);
+            using (var context = new MainContext())
+            {
+                context.Entry(comment).State = EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
         public void SaveComment(Comment comment)
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                updateEntity(context, comment);
+                context.SaveChanges();
+            }
         }
 
         public Comment GetComment(int id)
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                return context.Comments.Find(id);
+            }
         }
 
         public IEnumerable<Comment> LoadComments()
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                return context.Comments.ToList();
+            }
         }
 
         public void DeleteGame(int id)
         {
-            throw new System.NotImplementedException();
+            var game = GetGame(id);
+            using (var context = new MainContext())
+            {
+                context.Entry(game).State = EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
         public void SaveGame(Game game)
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                updateEntity(context, game);
+                context.SaveChanges();
+            }
         }
 
         public Game GetGame(int id)
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                return context.Games.Find(id);
+            }
         }
 
         public IEnumerable<Game> LoadGames()
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                return context.Games.ToList();
+            }
         }
 
+        #region Users
         public void DeleteTeam(int id)
         {
-            throw new System.NotImplementedException();
+            var team = GetTeam(id);
+            using (var context = new MainContext())
+            {
+                context.Entry(team).State = EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
         public void SaveTeam(Team team)
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                updateEntity(context, team);
+                context.SaveChanges();
+            }
         }
 
-        public Comment GetTeam(int id)
+        public Team GetTeam(int id)
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                return context.Teams.Find(id);
+            }
         }
 
         public IEnumerable<Team> LoadTeams()
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                return context.Teams.ToList();
+            }
         }
+        #endregion
 
+        #region Users
         public void DeleteTournament(int id)
         {
-            throw new System.NotImplementedException();
+            var tournament = GetTournament(id);
+            using (var context = new MainContext())
+            {
+                context.Entry(tournament).State = EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
         public void SaveTournament(Tournament tournament)
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                updateEntity(context, tournament);
+                context.SaveChanges();
+            }
         }
 
-        public Comment GetTournament(int id)
+        public Tournament GetTournament(int id)
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                return context.Tournaments.Find(id);
+            }
         }
 
         public IEnumerable<Tournament> LoadTournaments()
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                return context.Tournaments.ToList();
+            }
         }
+        #endregion
 
         #region Users
         public void DeleteUser(int id)
         {
-            throw new System.NotImplementedException();
+            var user = GetUser(id);
+            using (var context = new MainContext())
+            {
+                context.Entry(user).State = EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
         public void SaveUser(User user)
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                updateEntity(context, user);
+                context.SaveChanges();
+            }
         }
 
         public User GetUser(int id)
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                return context.Users.Find(id);
+            }
         }
 
         public IEnumerable<User> LoadUsers()
@@ -111,5 +188,10 @@ namespace Fifa.Repositories
             }
         }
         #endregion
+
+        private static void updateEntity(MainContext context, BaseEntity entity)
+        {
+            context.Entry(entity).State = entity.Id == 0 ? EntityState.Added : EntityState.Modified;
+        }
     }
 }

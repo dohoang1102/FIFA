@@ -18,12 +18,12 @@ namespace Fifa.Repositories
 
         void DeleteTeam(int id);
         void SaveTeam(Team team);
-        Comment GetTeam(int id);
+        Team GetTeam(int id);
         IEnumerable<Team> LoadTeams();
 
         void DeleteTournament(int id);
         void SaveTournament(Tournament tournament);
-        Comment GetTournament(int id);
+        Tournament GetTournament(int id);
         IEnumerable<Tournament> LoadTournaments();
 
         void DeleteUser(int id);
