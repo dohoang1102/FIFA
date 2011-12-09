@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 using Fifa.Models;
 
@@ -86,6 +87,7 @@ namespace Fifa.Repositories
             throw new System.NotImplementedException();
         }
 
+        #region Users
         public void DeleteUser(int id)
         {
             throw new System.NotImplementedException();
@@ -103,7 +105,11 @@ namespace Fifa.Repositories
 
         public IEnumerable<User> LoadUsers()
         {
-            throw new System.NotImplementedException();
+            using (var context = new MainContext())
+            {
+                return context.Users.ToList();
+            }
         }
+        #endregion
     }
 }

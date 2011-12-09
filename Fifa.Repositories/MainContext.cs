@@ -7,10 +7,14 @@ namespace Fifa.Repositories
 {
     public class MainContext : DbContext
     {
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Game> Games { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<User> Users { get; set; }
         
         public MainContext()
-            : base("name=Fifa")
+            : base("name=fifa")
         {
             Configuration.LazyLoadingEnabled = false;
         }

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+
+using Fifa.Core;
 
 namespace Fifa.Controllers
 {
@@ -10,8 +8,9 @@ namespace Fifa.Controllers
     {
         public ActionResult Index()
         {
+            UserService service = new UserService();
+            service.LoadUsers();
             ViewBag.Message = "Welcome to ASP.NET MVC!";
-
             return View();
         }
 

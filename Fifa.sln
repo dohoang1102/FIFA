@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fifa.Core", "Fifa.Core\Fifa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fifa.WebUi", "Fifa.WebUi\Fifa.WebUi.csproj", "{7F37A3A5-0EAD-4CE4-A31D-6001D2E5FDBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fifa.Tests", "Fifa.Tests\Fifa.Tests.csproj", "{C46955C2-C164-42DA-86EC-0E82C6B11AA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{7F37A3A5-0EAD-4CE4-A31D-6001D2E5FDBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F37A3A5-0EAD-4CE4-A31D-6001D2E5FDBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F37A3A5-0EAD-4CE4-A31D-6001D2E5FDBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46955C2-C164-42DA-86EC-0E82C6B11AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46955C2-C164-42DA-86EC-0E82C6B11AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46955C2-C164-42DA-86EC-0E82C6B11AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46955C2-C164-42DA-86EC-0E82C6B11AA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
