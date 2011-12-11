@@ -2,6 +2,8 @@ bin
 obj
 packages
 *.sdf
+*.mdf
+*.ldf
 *.suo
 *.user
 *ReSharper*

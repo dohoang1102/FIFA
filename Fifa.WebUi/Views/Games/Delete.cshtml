@@ -1,0 +1,41 @@
+@model Fifa.WebUi.Models.Game
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Game</legend>
+
+    <div class="display-label">PlayerA</div>
+    <div class="display-field">@Model.PlayerA</div>
+
+    <div class="display-label">PlayerB</div>
+    <div class="display-field">@Model.PlayerB</div>
+
+    <div class="display-label">TeamA</div>
+    <div class="display-field">@Model.TeamA</div>
+
+    <div class="display-label">TeamB</div>
+    <div class="display-field">@Model.TeamB</div>
+
+    <div class="display-label">ScoreA</div>
+    <div class="display-field">@Model.ScoreA</div>
+
+    <div class="display-label">ScoreB</div>
+    <div class="display-field">@Model.ScoreB</div>
+
+    <div class="display-label">Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Date)</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

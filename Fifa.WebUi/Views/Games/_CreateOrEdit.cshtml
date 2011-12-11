@@ -1,0 +1,60 @@
+@model Fifa.WebUi.Models.Game
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.PlayerA)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.PlayerA)
+    @Html.ValidationMessageFor(model => model.PlayerA)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.PlayerB)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.PlayerB)
+    @Html.ValidationMessageFor(model => model.PlayerB)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.TeamA)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.TeamA)
+    @Html.ValidationMessageFor(model => model.TeamA)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.TeamB)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.TeamB)
+    @Html.ValidationMessageFor(model => model.TeamB)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.ScoreA)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.ScoreA)
+    @Html.ValidationMessageFor(model => model.ScoreA)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.ScoreB)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.ScoreB)
+    @Html.ValidationMessageFor(model => model.ScoreB)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Date)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Date)
+    @Html.ValidationMessageFor(model => model.Date)
+</div>
+
