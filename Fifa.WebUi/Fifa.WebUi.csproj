@@ -66,6 +66,7 @@
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\TeamRepository.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

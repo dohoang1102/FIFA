@@ -21,5 +21,7 @@ namespace Fifa.WebUi.Models
         public DbSet<Game> Games { get; set; }
 
         public DbSet<Team> Teams { get; set; }
+
+        public DbSet<Fifa.WebUi.Models.User> Users { get; set; }
     }
 }
