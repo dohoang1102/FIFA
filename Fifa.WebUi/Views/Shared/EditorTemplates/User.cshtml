@@ -1,0 +1,8 @@
+﻿@model Fifa.WebUi.Models.User
+           
+@{
+    var repo = new Fifa.WebUi.Models.UserRepository();
+    var html = Html.DropDownListFor(x => x, repo.All.ToArray().Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name }));
+}
+
+@html

@@ -225,6 +225,8 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\_CreateOrEdit.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Team.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\User.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -1,19 +1,32 @@
-using System.ComponentModel.DataAnnotations; 
+using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace Fifa.WebUi.Models
-{ 
-	public class Game
-	{
-		public int Id {get; set;}
-		[Required]
-		public string PlayerA {get; set;}
-		[Required]
-		public string PlayerB {get; set;}
-		public string TeamA {get; set;}
-		public string TeamB {get; set;}
-		[Required]
-		public string ScoreA {get; set;}
-		[Required]
-		public string ScoreB {get; set;}
-		public System.DateTime Date {get; set;}
-	}
+{
+    public class Game
+    {
+        public int Id { get; set; }
+
+        [Required]
+        public User PlayerA { get; set; }
+
+        [Required]
+        public User PlayerB { get; set; }
+
+        public Team TeamA { get; set; }
+        public Team TeamB { get; set; }
+
+        [Required]
+        public int ScoreA { get; set; }
+
+        [Required]
+        public int ScoreB { get; set; }
+
+        public DateTime Date { get; set; }
+
+        public Game()
+        {
+            Date = DateTime.Now;
+        }
+    }
 }
