@@ -10,7 +10,7 @@ namespace Fifa.Controllers
         {
             UserService service = new UserService();
             service.LoadUsers();
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            ViewBag.Message = "Welcome to the Binary FIFA website!";
             return View();
         }
 
