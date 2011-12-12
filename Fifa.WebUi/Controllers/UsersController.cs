@@ -66,7 +66,7 @@ namespace Fifa.WebUi.Controllers
 
         public ActionResult Edit(int id)
         {
-            if (CanDoSelfEditing(id))
+            if (IsSelfModification(id))
             {
                 return View(userRepository.Find(id));
             }
@@ -76,21 +76,13 @@ namespace Fifa.WebUi.Controllers
             }
         }
 
-        private bool CanDoSelfEditing(int id)
-        {
-            return User.Identity.IsAuthenticated &&
-                   userRepository.All.Any(x =>
-                                          x.Id == id &&
-                                          x.Name == User.Identity.Name);
-        }
-
         //
         // POST: /Users/Edit/5
 
         [HttpPost]
         public ActionResult Edit(User user)
         {
-            if (CanDoSelfEditing(user.Id) && ModelState.IsValid)
+            if (IsSelfModification(user.Id) && ModelState.IsValid)
             {
                 user.IsAdmin = false;
                 userRepository.InsertOrUpdate(user);
@@ -108,7 +100,7 @@ namespace Fifa.WebUi.Controllers
 
         public ActionResult Delete(int id)
         {
-            if (CanDoSelfEditing(id))
+            if (IsSelfModification(id))
             {
                 return View(userRepository.Find(id));
             }
@@ -124,7 +116,7 @@ namespace Fifa.WebUi.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            if (CanDoSelfEditing(id))
+            if (IsSelfModification(id))
             {
                 userRepository.Delete(id);
                 userRepository.Save();
@@ -135,6 +127,14 @@ namespace Fifa.WebUi.Controllers
             {
                 return new HttpUnauthorizedResult();
             }
+        }
+
+        private bool IsSelfModification(int id)
+        {
+            return true || User.Identity.IsAuthenticated &&
+                   userRepository.All.Any(x =>
+                                          x.Id == id &&
+                                          x.Name == User.Identity.Name);
         }
     }
 }

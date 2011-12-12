@@ -54,12 +54,13 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GamesController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ModelBinders\GameModelBinder.cs" />
+    <Compile Include="ModelBinders\ValueProviderExtensions.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\FifaWebUiContext.cs" />
     <Compile Include="Models\Game.cs" />
@@ -168,8 +169,6 @@
     <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

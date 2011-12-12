@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Fifa.WebUi.ModelBinders;
+using Fifa.WebUi.Models;
 
 namespace Fifa
 {
@@ -24,7 +26,7 @@ namespace Fifa
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "Games", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
         }
@@ -35,6 +37,8 @@ namespace Fifa
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            ModelBinders.Binders.Add(typeof(Game), new GameModelBinder());
         }
     }
 }

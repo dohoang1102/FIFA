@@ -7,14 +7,17 @@ namespace Fifa.WebUi.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        public User PlayerA { get; set; }
+        public virtual User PlayerA { get; set; }
+        public virtual User PlayerB { get; set; }
 
-        [Required]
-        public User PlayerB { get; set; }
+        public int PlayerAId { get; set; }
+        public int PlayerBId { get; set; }
 
-        public Team TeamA { get; set; }
-        public Team TeamB { get; set; }
+        public virtual Team TeamA { get; set; }
+        public virtual Team TeamB { get; set; }
+
+        public int TeamAId { get; set; }
+        public int TeamBId { get; set; }
 
         [Required]
         public int ScoreA { get; set; }

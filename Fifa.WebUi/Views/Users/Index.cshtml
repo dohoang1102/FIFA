@@ -1,73 +1,45 @@
 @model IEnumerable<Fifa.WebUi.Models.User>
-
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
+<h2>
+    Index</h2>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
-@if (Model.Any()) 
+@if (Model.Any())
 {
-	<table>
-		<tr>
-			<th></th>
-				<th>
-				Name
-			</th>
-				<th>
-				PasswordHash
-			</th>
-				<th>
-				PasswordSalt
-			</th>
-				<th>
-				RegistrationDate
-			</th>
-				<th>
-				IsAdmin
-			</th>
-				<th>
-				Identity
-			</th>
-			</tr>
-
-	@foreach (var item in Model) {
-		<tr>
-				<td>
-				@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-				@Html.ActionLink("Details", "Details", new { id=item.Id }) |
-				@Html.ActionLink("Delete", "Delete", new { id=item.Id })
-			</td>
-					<td>
-				@item.Name
-			</td>
-				<td>
-				@item.PasswordHash
-			</td>
-				<td>
-				@item.PasswordSalt
-			</td>
-				<td>
-				@String.Format("{0:g}", item.RegistrationDate)
-			</td>
-				<td>
-				@item.IsAdmin
-			</td>
-				<td>
-				@(item.Identity == null ? "None" : item.Identity.Name)
-			</td>
-			</tr>
-	}
-
-	</table>
-} 
-else 
-{
-	<p>There are no items to show.</p>
+    <table>
+        <tr>
+            <th>
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Registration Date
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @String.Format("{0:g}", item.RegistrationDate)
+                </td>
+            </tr>
+        }
+    </table>
 }
-
-
+else
+{
+    <p>
+        There are no items to show.</p>
+}
