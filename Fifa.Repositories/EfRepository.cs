@@ -8,6 +8,8 @@ namespace Fifa.Repositories
 {
     public class EfRepository : IRepository
     {
+        #region Comments
+
         public void DeleteComment(int id)
         {
             var comment = GetComment(id);
@@ -42,6 +44,10 @@ namespace Fifa.Repositories
                 return context.Comments.ToList();
             }
         }
+
+        #endregion
+
+        #region Games
 
         public void DeleteGame(int id)
         {
@@ -78,7 +84,10 @@ namespace Fifa.Repositories
             }
         }
 
-        #region Users
+        #endregion
+
+        #region Teams
+
         public void DeleteTeam(int id)
         {
             var team = GetTeam(id);
@@ -113,9 +122,11 @@ namespace Fifa.Repositories
                 return context.Teams.ToList();
             }
         }
+
         #endregion
 
-        #region Users
+        #region Tournaments
+
         public void DeleteTournament(int id)
         {
             var tournament = GetTournament(id);
@@ -150,9 +161,11 @@ namespace Fifa.Repositories
                 return context.Tournaments.ToList();
             }
         }
+
         #endregion
 
         #region Users
+
         public void DeleteUser(int id)
         {
             var user = GetUser(id);
@@ -187,6 +200,7 @@ namespace Fifa.Repositories
                 return context.Users.ToList();
             }
         }
+
         #endregion
 
         private static void updateEntity(MainContext context, BaseEntity entity)
