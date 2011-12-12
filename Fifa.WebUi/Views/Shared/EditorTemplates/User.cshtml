@@ -2,7 +2,7 @@
            
 @{
     var repo = new Fifa.WebUi.Models.UserRepository();
-    var html = Html.DropDownListFor(x => x, repo.All.ToArray().Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name }), "Select...");
+    var html = Html.DropDownListFor(x => x, repo.All.ToArray().Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name, Selected = Model != null && Model.Id == x.Id }), "Select...");
 }
 
 @html
