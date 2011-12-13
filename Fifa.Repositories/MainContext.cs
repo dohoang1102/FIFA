@@ -13,12 +13,14 @@ namespace Fifa.Repositories
         public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<User> Users { get; set; }
 
+        // TODO: remove this hack
+#if DEBUG
         static  MainContext()
         {
-            // TODO: Remove when will have data.
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MainContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<MainContext>());
         }
-        
+#endif
+
         public MainContext()
             : base("name=fifa")
         {
