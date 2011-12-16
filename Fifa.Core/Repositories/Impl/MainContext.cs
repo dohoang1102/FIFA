@@ -1,3 +1,7 @@
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using Fifa.Core.Models;
+
 namespace Fifa.Core.Repositories.Impl
 {
     public class MainContext : DbContext

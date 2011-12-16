@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using Fifa.Core.Models;
 
 namespace Fifa.Core.Repositories.Impl
 {

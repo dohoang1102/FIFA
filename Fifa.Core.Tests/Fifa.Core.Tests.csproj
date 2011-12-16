@@ -8,8 +8,8 @@
     <ProjectGuid>{C46955C2-C164-42DA-86EC-0E82C6B11AA1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fifa.Tests</RootNamespace>
-    <AssemblyName>Fifa.Tests</AssemblyName>
+    <RootNamespace>Fifa.Core.Tests</RootNamespace>
+    <AssemblyName>Fifa.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
