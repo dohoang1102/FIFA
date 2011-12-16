@@ -9,6 +9,6 @@ namespace Fifa.Repositories
         void DeleteUser(int id);
         void SaveUser(User user);
         User GetUser(int id);
-        IEnumerable<User> LoadUsers();
+        IEnumerable<User> GetAllUsers();
     }
 }

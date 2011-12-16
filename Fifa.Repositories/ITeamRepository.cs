@@ -9,6 +9,6 @@ namespace Fifa.Repositories
         void DeleteTeam(int id);
         void SaveTeam(Team team);
         Team GetTeam(int id);
-        IEnumerable<Team> LoadTeams();
+        IEnumerable<Team> GetAllTeams();
     }
 }

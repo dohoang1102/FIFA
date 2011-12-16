@@ -35,7 +35,7 @@ namespace Fifa.Repositories
             }
         }
 
-        public IEnumerable<Comment> LoadComments()
+        public IEnumerable<Comment> GetAllComments()
         {
             using (var context = new MainContext())
             {

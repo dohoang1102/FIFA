@@ -35,7 +35,7 @@ namespace Fifa.Repositories
             }
         }
 
-        public IEnumerable<Tournament> LoadTournaments()
+        public IEnumerable<Tournament> GetAllTournaments()
         {
             using (var context = new MainContext())
             {

@@ -35,7 +35,7 @@ namespace Fifa.Repositories
             }
         }
 
-        public IEnumerable<Team> LoadTeams()
+        public IEnumerable<Team> GetAllTeams()
         {
             using (var context = new MainContext())
             {

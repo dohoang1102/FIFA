@@ -9,6 +9,6 @@ namespace Fifa.Repositories
         void DeleteTournament(int id);
         void SaveTournament(Tournament tournament);
         Tournament GetTournament(int id);
-        IEnumerable<Tournament> LoadTournaments();
+        IEnumerable<Tournament> GetAllTournaments();
     }
 }

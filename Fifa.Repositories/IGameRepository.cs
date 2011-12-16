@@ -9,6 +9,6 @@ namespace Fifa.Repositories
         void DeleteGame(int id);
         void SaveGame(Game game);
         Game GetGame(int id);
-        IEnumerable<Game> LoadGames();
+        IEnumerable<Game> GetAllGames();
     }
 }

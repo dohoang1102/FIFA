@@ -9,6 +9,6 @@ namespace Fifa.Repositories
         void DeleteComment(int id);
         void SaveComment(Comment comment);
         Comment GetComment(int id);
-        IEnumerable<Comment> LoadComments();
+        IEnumerable<Comment> GetAllComments();
     }
 }

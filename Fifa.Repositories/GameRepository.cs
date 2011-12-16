@@ -35,7 +35,7 @@ namespace Fifa.Repositories
             }
         }
 
-        public IEnumerable<Game> LoadGames()
+        public IEnumerable<Game> GetAllGames()
         {
             using (var context = new MainContext())
             {

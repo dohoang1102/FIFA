@@ -35,7 +35,7 @@ namespace Fifa.Repositories
             }
         }
 
-        public IEnumerable<User> LoadUsers()
+        public IEnumerable<User> GetAllUsers()
         {
             using (var context = new MainContext())
             {
