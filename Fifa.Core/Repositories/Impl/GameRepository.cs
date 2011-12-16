@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Data;
+using System.Collections.Generic;
 using System.Linq;
 
-using Fifa.Models;
-
-namespace Fifa.Repositories
+namespace Fifa.Core.Repositories.Impl
 {
     public class GameRepository : IGameRepository
     {
@@ -39,7 +36,7 @@ namespace Fifa.Repositories
         {
             using (var context = new MainContext())
             {
-                return context.Games.ToList();
+                return Enumerable.ToList(context.Games);
             }
         }
     }

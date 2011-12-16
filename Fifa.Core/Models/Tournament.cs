@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Fifa.Models
+namespace Fifa.Core.Models
 {
     public class Tournament : BaseEntity
     {

@@ -1,4 +1,4 @@
-﻿namespace Fifa.Models
+namespace Fifa.Core.Models
 {
     public class BaseEntity
     {

@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+using System;
 
-namespace Fifa.Models
+namespace Fifa.Core.Models
 {
     public class Comment: BaseEntity
     {

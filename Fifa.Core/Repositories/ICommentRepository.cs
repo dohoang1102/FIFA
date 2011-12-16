@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
-using Fifa.Models;
-
-namespace Fifa.Repositories
+namespace Fifa.Core.Repositories
 {
     public interface ICommentRepository
     {

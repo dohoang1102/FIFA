@@ -158,10 +158,6 @@
       <Project>{F5CF0C7C-2252-453A-A1E0-72FB3B006F9F}</Project>
       <Name>Fifa.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fifa.Models\Fifa.Models.csproj">
-      <Project>{6F839319-57B7-4B0E-A72A-D420507B171F}</Project>
-      <Name>Fifa.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Team\Index.cshtml" />

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using Fifa.Models;
-using Fifa.Repositories;
+using Fifa.Core.Models;
+using Fifa.Core.Repositories;
+using Fifa.Core.Repositories.Impl;
 
 namespace Fifa.Core
 {

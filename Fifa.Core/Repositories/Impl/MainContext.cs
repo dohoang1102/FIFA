@@ -1,9 +1,4 @@
-п»їusing System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
-
-using Fifa.Models;
-
-namespace Fifa.Repositories
+namespace Fifa.Core.Repositories.Impl
 {
     public class MainContext : DbContext
     {
@@ -17,7 +12,7 @@ namespace Fifa.Repositories
 #if DEBUG
         static  MainContext()
         {
-            //РЅРµ РЅР°РґРѕ С‚Р°Рє РґРµР»Р°С‚СЊ. РїРѕС‚РѕРјСѓ С‡С‚Рѕ РєС‚Рѕ-С‚Рѕ РјРѕР¶РµС‚ Р·Р°Р№С‚Рµ РІ РґРµР±Р°РіРµ РЅР° РїСЂРѕРґР°РєС€РёРЅ Р±Р°Р·Сѓ Рё РїРёРїРµС† РІСЃРµРј РґР°РЅРЅС‹Рј.
+            //не надо так делать. потому что кто-то может зайте в дебаге на продакшин базу и пипец всем данным.
             //Database.SetInitializer(new DropCreateDatabaseAlways<MainContext>());
         }
 #endif

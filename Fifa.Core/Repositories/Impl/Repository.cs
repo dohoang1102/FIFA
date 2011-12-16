@@ -1,8 +1,4 @@
-﻿using System.Data;
-
-using Fifa.Models;
-
-namespace Fifa.Repositories
+namespace Fifa.Core.Repositories.Impl
 {
     public class Repository
     {

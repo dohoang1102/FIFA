@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Fifa.Core;
+using Fifa.Core.Models;
 using Fifa.Models;
 
 namespace Fifa.WebUi.Controllers
