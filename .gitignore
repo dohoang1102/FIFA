@@ -6,4 +6,5 @@ packages
 *.ldf
 *.suo
 *.user
+*.log
 *ReSharper*
