@@ -2,7 +2,7 @@
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-
+using Combres;
 using log4net;
 
 namespace Fifa.WebUi
@@ -71,6 +71,8 @@ namespace Fifa.WebUi
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            RouteTable.Routes.AddCombresRoute("CombresRoute");
         }
 
         /// <summary>
