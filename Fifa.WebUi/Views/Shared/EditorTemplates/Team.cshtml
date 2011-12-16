@@ -1,0 +1,8 @@
+﻿@model int
+           
+@{
+    var repo = Fifa.Core.TeamService.GetAllTeams();
+    var html = Html.DropDownListFor(x => x, repo.Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name, Selected = Model != null && x.Id == Model }), "Select...");
+}
+
+@html

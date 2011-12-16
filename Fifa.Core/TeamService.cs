@@ -33,10 +33,5 @@ namespace Fifa.Core
             Repository.Teams.DeleteTeam(user.Id);
             return true;
         }
-
-        public SelectedList GetTeams()
-        {
-            
-        }
     }
 }
