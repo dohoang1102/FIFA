@@ -1,0 +1,48 @@
+﻿@model Fifa.Models.Game
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Game</legend>
+
+    <div class="display-label">PlayerAId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PlayerAId)
+    </div>
+
+    <div class="display-label">PlayerBId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PlayerBId)
+    </div>
+
+    <div class="display-label">ScoreA</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ScoreA)
+    </div>
+
+    <div class="display-label">ScoreB</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ScoreB)
+    </div>
+
+    <div class="display-label">TeamAId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TeamAId)
+    </div>
+
+    <div class="display-label">TeamBId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TeamBId)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

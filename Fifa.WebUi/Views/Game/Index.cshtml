@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Fifa.Models.Game>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            PlayerAId
+        </th>
+        <th>
+            PlayerBId
+        </th>
+        <th>
+            ScoreA
+        </th>
+        <th>
+            ScoreB
+        </th>
+        <th>
+            TeamAId
+        </th>
+        <th>
+            TeamBId
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerAId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerBId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScoreA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScoreB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamAId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamBId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
