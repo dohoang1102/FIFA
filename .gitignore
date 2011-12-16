@@ -7,4 +7,5 @@ packages
 *.suo
 *.user
 *.log
+*.log.*
 *ReSharper*

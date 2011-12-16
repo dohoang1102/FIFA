@@ -1,4 +1,5 @@
 ﻿@using Combres.Mvc
+@using Fifa.WebUi.Helpers
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,11 +15,11 @@
 		
             <!-- Navigation Menu -->
             <ul id="navigation" class="grid_8">
-                <li><a href="@Url.Action("Index", "Game")"><span class="meta">Get in touch</span><br />Contact Us</a></li>
-                <li><a href="blog.html"><span class="meta">Latest news</span><br />Blog</a></li>
-                <li><a href="portfolio.html"><span class="meta">Our latest work</span><br />Portfolio</a></li>
-                <li><a href="about.html" class="current"><span class="meta">Who are we?</span><br />About</a></li>
-                <li><a href="index.html"><span class="meta">Homepage</span><br />Home</a></li>
+                @Html.NavigationLink("About Us", "About", "About", "Home")
+                @Html.NavigationLink("They're Awesome!", "Players", "Index", "User")
+                @Html.NavigationLink("Chosen Teams", "Teams", "Index", "Team")
+                @Html.NavigationLink("Played Games", "Games", "Index", "Game")
+                @Html.NavigationLink("Main Page", "Home", "Index", "Home")
             </ul>
             
             <div class="hr grid_12 clearfix">&nbsp;</div>
@@ -30,7 +31,6 @@
             <!-- Footer -->
             <p class="grid_12 footer clearfix">
                 <span class="float"><b>Copyright &copy; <a href="https://github.com/fomaa/FIFA/contributors">FIFA Development Team, 2011</a></b>. Design by <a href="http://www.csstemplatesfree.org/aurelius.html">QwibbleDesigns</a>.</span>
-                <a class="float right" href="#top">top</a>
             </p>
 		
         </div><!--end wrapper-->
