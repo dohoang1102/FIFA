@@ -17,6 +17,7 @@ namespace Fifa.Repositories
             Users = new UserRepository();
             Comments = new CommentRepository();
             Games = new GameRepository();
+            Teams = new TeamRepository();
             Tournaments = new TournamentRepository();
         }
 

@@ -17,7 +17,8 @@ namespace Fifa.Repositories
 #if DEBUG
         static  MainContext()
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<MainContext>());
+            //не надо так делать. потому что кто-то может зайте в дебаге на продакшин базу и пипец всем данным.
+            //Database.SetInitializer(new DropCreateDatabaseAlways<MainContext>());
         }
 #endif
 
