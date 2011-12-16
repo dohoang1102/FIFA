@@ -1,8 +1,34 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@using Fifa.WebUi.Helpers
+@{
+    ViewBag.Title = "Welcome!";
 }
 
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
-</p>
+<p class="grid_12 centered"><img alt="FIFA" src="@Url.Image("fifa.jpg")"/></p>
+<div class="hr grid_12 clearfix">&nbsp;</div><!-- Caption Line -->
+<h2 class="grid_12 caption clearfix centered">Welcome! This is <span>FIFAAA</span>, a portal, where <u>statistics</u> &amp; <u>raitings</u> are built <br />for our dear binary football players.</h2>
+<div class="hr grid_12 clearfix quicknavhr">&nbsp;</div>
+
+<div id="quicknav" class="grid_12">
+    
+    <a class="quicknavgrid_3 quicknav alpha" href="@Url.Action("Index", "Game")">
+        <h4 class="title">Games</h4>
+        <p>Cras vestibulum lorem et dui mollis sed posuere leo semper. </p>
+        <p class="centered"><img alt="" src="@Url.Image("Art_Artdesigner.lv.png")" /></p>
+    </a>
+
+    <a class="quicknavgrid_3 quicknav alpha" href="@Url.Action("Index", "Team")">
+        <h4 class="title">Teams</h4>
+        <p>Cras vestibulum lorem et dui mollis sed posuere leo semper. </p>
+        <p class="centered"><img alt="" src="@Url.Image("info.png")" /></p>
+    </a>
+    <a class="quicknavgrid_3 quicknav alpha" href="@Url.Action("Index", "User")">
+        <h4 class="title">Players</h4>
+        <p>Cras vestibulum lorem et dui mollis sed posuere leo semper. </p>
+        <p class="centered"><img alt="" src="@Url.Image("Blog_Artdesigner.lv.png")" /></p>
+    </a>
+    <a class="quicknavgrid_3 quicknav alpha" href="@Url.Action("About", "Home")">
+        <h4 class="title">About</h4>
+        <p>Cras vestibulum lorem et dui mollis sed posuere leo semper. </p>
+        <p class="centered"><img alt="" src="@Url.Image("hungry_bird.png")" /></p>
+    </a>
+</div>

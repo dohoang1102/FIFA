@@ -17,7 +17,8 @@
                 remoteChangeMonitorInterval="60"
                 >
     <resourceSet name="styles" type="css">
-      <resource path="~/Content/Site.css" />
+      <resource path="~/Styles/reset.css" />
+      <resource path="~/Styles/styles.css" />
     </resourceSet>
     <resourceSet name="scripts" type="js">
       <resource path="~/Scripts/jquery-1.7.1.js" />
