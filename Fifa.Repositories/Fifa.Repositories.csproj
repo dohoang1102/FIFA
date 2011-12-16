@@ -48,11 +48,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EfRepository.cs" />
-    <Compile Include="IRepository.cs" />
+    <Compile Include="CommentRepository.cs" />
+    <Compile Include="UserRepository.cs" />
+    <Compile Include="GameRepository.cs" />
+    <Compile Include="ICommentRepository.cs" />
+    <Compile Include="IGameRepository.cs" />
+    <Compile Include="IUserRepository.cs" />
+    <Compile Include="ITeamRepository.cs" />
+    <Compile Include="ITournamentRepository.cs" />
     <Compile Include="MainContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
+    <Compile Include="TeamRepository.cs" />
+    <Compile Include="TournamentRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fifa.Models\Fifa.Models.csproj">

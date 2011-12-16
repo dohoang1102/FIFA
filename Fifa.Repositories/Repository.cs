@@ -1,12 +1,28 @@
-﻿namespace Fifa.Repositories
+﻿using System.Data;
+
+using Fifa.Models;
+
+namespace Fifa.Repositories
 {
     public class Repository
     {
-        public static IRepository Instance { get; set; }
+        public static IUserRepository Users { get; set; }
+        public static ICommentRepository Comments { get; set; }
+        public static IGameRepository Games { get; set; }
+        public static ITeamRepository Teams { get; set; }
+        public static ITournamentRepository Tournaments { get; set; }
 
         static Repository()
         {
-            Instance = new EfRepository();
+            Users = new UserRepository();
+            Comments = new CommentRepository();
+            Games = new GameRepository();
+            Tournaments = new TournamentRepository();
+        }
+
+        public static void UpdateEntity(MainContext context, BaseEntity entity)
+        {
+            context.Entry(entity).State = entity.Id == 0 ? EntityState.Added : EntityState.Modified;
         }
     }
 }
