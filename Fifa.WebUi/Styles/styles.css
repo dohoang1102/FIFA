@@ -244,10 +244,8 @@ DESCRIPTION: A premium business and portfolio theme.
 /* Custom */
 
     .centered                           {text-align: center;}
-    
-    
-    
-    
-    table.games th {
-        text-align: left;
-    }
+    th, td                              {padding: 2px 6px;}
+    th                                  {text-align: center;}
+    td                                  {text-align: left;}
+    td.host                             {text-align: right;}
+    td.guest                            {text-align: left;}

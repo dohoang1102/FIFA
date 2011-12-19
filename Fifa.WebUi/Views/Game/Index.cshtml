@@ -9,20 +9,16 @@
 </p>
 <table class="games">
     <tr>
-        <th style="width:120px;">
-            PlayerA
+        <th class="">
+            Host
         </th>
-        <th style="width:120px;">
-            PlayerB
+        <th>
+            Score
         </th>
-        <th style="width:70px;">Score</th>
-        <th style="width:120px;">
-            TeamA
+        <th>
+            Guest
         </th>
-        <th style="width:120px;">
-            TeamB
-        </th>
-        <th style="width:160px;">
+        <th>
             Date
         </th>
         <th></th>
@@ -30,21 +26,15 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlayerA.Name)
+        <td class="host">
+            @item.PlayerA.Name (@item.TeamA.Name)
+        </td>
+        <td class="centered">@item.ScoreA : @item.ScoreB</td>
+        <td class="guest">
+            @item.PlayerB.Name (@item.TeamB.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PlayerB.Name)
-        </td>
-        <td>@item.ScoreA : @item.ScoreB</td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TeamA.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TeamB.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
+            @item.Date
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
