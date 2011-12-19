@@ -38,7 +38,7 @@ namespace Fifa.Core.Repositories.Impl
         {
             using (var context = new MainContext())
             {
-                return Enumerable.ToList(context.Games);
+                return context.Games.Include("PlayerA").Include("PlayerB").Include("TeamA").Include("TeamB").ToList();
             }
         }
     }

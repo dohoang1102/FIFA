@@ -1,31 +1,26 @@
 ﻿@model IEnumerable<Fifa.Core.Models.Game>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Games";
 }
-<h2>Index</h2>
+<h2>Games</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+<table class="games">
     <tr>
-        <th>
-            PlayerAId
+        <th style="width:120px;">
+            PlayerA
         </th>
-        <th>
-            PlayerBId
+        <th style="width:120px;">
+            PlayerB
         </th>
-        <th>
-            ScoreA
+        <th style="width:70px;">Score</th>
+        <th style="width:120px;">
+            TeamA
         </th>
-        <th>
-            ScoreB
-        </th>
-        <th>
-            TeamAId
-        </th>
-        <th>
-            TeamBId
+        <th style="width:120px;">
+            TeamB
         </th>
         <th></th>
     </tr>
@@ -33,22 +28,17 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PlayerAId)
+            @Html.DisplayFor(modelItem => item.PlayerA.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PlayerBId)
+            @Html.DisplayFor(modelItem => item.PlayerB.Name)
+        </td>
+        <td>@item.ScoreA : @item.ScoreB</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeamA.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ScoreA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ScoreB)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TeamAId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TeamBId)
+            @Html.DisplayFor(modelItem => item.TeamB.Name)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
