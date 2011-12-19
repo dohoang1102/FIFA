@@ -38,7 +38,8 @@ namespace Fifa.Core.Repositories.Impl
         {
             using (var context = new MainContext())
             {
-                return context.Games.Include("PlayerA").Include("PlayerB").Include("TeamA").Include("TeamB").ToList();
+                return context.Games.Include("PlayerA").Include("PlayerB").Include("TeamA").Include("TeamB").
+                        OrderByDescending(x => x.Date).ToList();
             }
         }
     }

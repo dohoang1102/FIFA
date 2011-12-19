@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Fifa.Core.Models;
-using Fifa.Core.Repositories;
 using Fifa.Core.Repositories.Impl;
 
 namespace Fifa.Core
@@ -14,7 +14,7 @@ namespace Fifa.Core
 
         public static Game CreateGame()
         {
-            return new Game();
+            return new Game { Date = DateTime.Now };
         }
 
         public static Game GetTeam(int id)

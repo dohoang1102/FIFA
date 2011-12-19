@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Fifa.Core.Models
@@ -22,5 +23,7 @@ namespace Fifa.Core.Models
         [UIHint("Team")]
         public int TeamBId { get; set; }
         public Team TeamB { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }
