@@ -12,6 +12,7 @@ namespace Fifa.Core.Repositories.Impl
         public DbSet<Team> Teams { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<UserStats> UserStats { get; set; }
 
         // TODO: remove this hack
 #if DEBUG

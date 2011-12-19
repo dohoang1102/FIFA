@@ -34,5 +34,10 @@ namespace Fifa.Core
             Repository.Users.DeleteUser(user.Id);
             return true;
         }
+
+        public static void CalculateStats(int userId)
+        {
+            
+        }
     }
 }

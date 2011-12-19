@@ -18,5 +18,8 @@ namespace Fifa.Core.Models
         public string Password { get; set; }
 
         public DateTime RegistrationDate { get; set; }
+
+        public int UserStatsId { get; set; }
+        public UserStats UserStats { get; set; }
     }
 }

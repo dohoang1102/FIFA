@@ -38,7 +38,7 @@ namespace Fifa.Core.Repositories.Impl
         {
             using (var context = new MainContext())
             {
-                return Enumerable.ToList(context.Users);
+                return context.Users.Include("UserStats").OrderBy(x => x.Name).ToList();
             }
         }
     }

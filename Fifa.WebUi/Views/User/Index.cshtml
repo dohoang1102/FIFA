@@ -18,6 +18,18 @@
             Name
         </th>
         <th>
+            Games
+        </th>
+        <th>
+            Wins
+        </th>
+        <th>
+            Losses
+        </th>
+        <th>
+            Rate
+        </th>
+        <th>
             Registration Date
         </th>
         <th></th>
@@ -30,6 +42,18 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @item.UserStats.Games
+        </td>
+        <td>
+            @item.UserStats.Wins
+        </td>
+        <td>
+            @item.UserStats.Losses
+        </td>
+        <td>
+            @item.UserStats.WinRate
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RegistrationDate)
