@@ -52,7 +52,7 @@ namespace Fifa.Core.Services.Impl
         {
             var stats = userStatsRepository.GetUserStats(userId);
             var games = gameRepository.GetAllGames(new GameFilter { UserId = userId });
-            stats.Games = games.Count;
+            stats.Games = games.Count();
             stats.Wins = games.Where(x =>
                     (x.PlayerAId == userId && x.ScoreA > x.ScoreB) || 
                     (x.PlayerBId == userId && x.ScoreA < x.ScoreB)).Count();

@@ -36,7 +36,7 @@ namespace Fifa.Core.Repositories.Impl
             }
         }
 
-        public List<Game> GetAllGames(GameFilter filter)
+        public IEnumerable<Game> GetAllGames(GameFilter filter)
         {
             using (var context = new MainContext())
             {

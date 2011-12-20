@@ -9,6 +9,6 @@ namespace Fifa.Core.Repositories
         void DeleteGame(int id);
         void SaveGame(Game game);
         Game GetGame(int id);
-        List<Game> GetAllGames(GameFilter filter);
+        IEnumerable<Game> GetAllGames(GameFilter filter);
     }
 }
