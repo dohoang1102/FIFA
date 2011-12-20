@@ -46,6 +46,7 @@ namespace Fifa.Core.Repositories.Impl
                     Include(x=>x.TeamA).
                     Include(x=>x.TeamB).
                     WhereIf(filter.UserId > 0, x => x.PlayerAId == filter.UserId || x.PlayerBId == filter.UserId).
+                    OrderByDescending(x=>x.Date).
                     ToList();
             }
         }
