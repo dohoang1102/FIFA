@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
 using Fifa.Core.Models;
-using Fifa.Core.Repositories;
+using Fifa.Core.Repositories.Filters;
 using Fifa.Core.Repositories.Impl;
 
 namespace Fifa.Core
@@ -37,7 +39,19 @@ namespace Fifa.Core
 
         public static void CalculateStats(int userId)
         {
-            
+            var stats = Repository.UserStats.GetUserStats(userId);
+            var games = Repository.Games.GetAllGames(new GameFilter { UserId = userId });
+            stats.Games = games.Count;
+            stats.Wins = games.Where(x =>
+                    (x.PlayerAId == userId && x.ScoreA > x.ScoreB) || 
+                    (x.PlayerBId == userId && x.ScoreA < x.ScoreB)).Count();
+            stats.Ties = games.Where(x => x.ScoreA == x.ScoreB).Count();
+            stats.Losses = stats.Games - stats.Wins - stats.Ties;
+            if (stats.Games > 0)
+            {
+                stats.WinRate = stats.Wins * 0.1m / stats.Games * 100;
+            }
+            Repository.UserStats.SaveUserStats(stats);
         }
     }
 }

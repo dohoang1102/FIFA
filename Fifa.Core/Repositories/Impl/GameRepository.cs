@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using Fifa.Core.Models;
+using Fifa.Core.Repositories.Filters;
 
 namespace Fifa.Core.Repositories.Impl
 {
@@ -34,12 +36,17 @@ namespace Fifa.Core.Repositories.Impl
             }
         }
 
-        public IEnumerable<Game> GetAllGames()
+        public List<Game> GetAllGames(GameFilter filter)
         {
             using (var context = new MainContext())
             {
-                return context.Games.Include("PlayerA").Include("PlayerB").Include("TeamA").Include("TeamB").
-                        OrderByDescending(x => x.Date).ToList();
+                return context.Games.
+                    Include(x=>x.PlayerA).
+                    Include(x=>x.PlayerB).
+                    Include(x=>x.TeamA).
+                    Include(x=>x.TeamB).
+                    WhereIf(filter.UserId > 0, x => x.PlayerAId == filter.UserId || x.PlayerBId == filter.UserId).
+                    ToList();
             }
         }
     }

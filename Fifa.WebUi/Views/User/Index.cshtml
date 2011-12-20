@@ -24,13 +24,13 @@
             Wins
         </th>
         <th>
+            Ties
+        </th>
+        <th>
             Losses
         </th>
         <th>
             Rate
-        </th>
-        <th>
-            Registration Date
         </th>
         <th></th>
     </tr>
@@ -46,17 +46,11 @@
         <td>
             @item.UserStats.Games
         </td>
-        <td>
-            @item.UserStats.Wins
-        </td>
-        <td>
-            @item.UserStats.Losses
-        </td>
+        <td>@item.UserStats.Wins</td>
+        <td>@item.UserStats.Ties</td>
+        <td>@item.UserStats.Losses</td>
         <td>
             @item.UserStats.WinRate
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegistrationDate)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

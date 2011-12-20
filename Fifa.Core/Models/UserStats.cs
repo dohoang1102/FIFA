@@ -10,6 +10,8 @@ namespace Fifa.Core.Models
 
         public int Losses { get; set; }
 
+        public int Ties { get; set; }
+
         public decimal WinRate { get; set; }
 
         public DateTime CalcDate { get; set; }

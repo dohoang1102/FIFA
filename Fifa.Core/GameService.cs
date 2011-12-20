@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Fifa.Core.Models;
+using Fifa.Core.Repositories.Filters;
 using Fifa.Core.Repositories.Impl;
 
 namespace Fifa.Core
@@ -9,7 +10,7 @@ namespace Fifa.Core
     {
         public static IEnumerable<Game> GetAllGames()
         {
-            return Repository.Games.GetAllGames();
+            return Repository.Games.GetAllGames(new GameFilter());
         }
 
         public static Game CreateGame()
@@ -25,6 +26,10 @@ namespace Fifa.Core
         public static bool SaveGame(Game game)
         {
             Repository.Games.SaveGame(game);
+
+            UserService.CalculateStats(game.PlayerAId);
+            UserService.CalculateStats(game.PlayerBId);
+
             return true;
         }
 

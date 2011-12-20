@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Fifa.Core.Models;
+using Fifa.Core.Repositories.Filters;
 
 namespace Fifa.Core.Repositories
 {
@@ -8,6 +9,6 @@ namespace Fifa.Core.Repositories
         void DeleteGame(int id);
         void SaveGame(Game game);
         Game GetGame(int id);
-        IEnumerable<Game> GetAllGames();
+        List<Game> GetAllGames(GameFilter filter);
     }
 }
