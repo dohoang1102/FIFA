@@ -11,12 +11,12 @@ namespace Fifa.Core.Services.Impl
     {
         private readonly IGameRepository gameRepository;
 
-        private readonly IUserService userService;
+        private readonly IStatsService statsService;
 
-        public GameService(IGameRepository gameRepository, IUserService userService)
+        public GameService(IGameRepository gameRepository, IStatsService statsService)
         {
             this.gameRepository = gameRepository;
-            this.userService = userService;
+            this.statsService = statsService;
         }
 
         public IEnumerable<Game> GetAllGames()
@@ -38,8 +38,8 @@ namespace Fifa.Core.Services.Impl
         {
             gameRepository.SaveGame(game);
 
-            userService.CalculateStats(game.PlayerAId);
-            userService.CalculateStats(game.PlayerBId);
+            statsService.CalculateStats(game.PlayerAId);
+            statsService.CalculateStats(game.PlayerBId);
         }
 
         public void DeleteGame(Game game)

@@ -15,7 +15,5 @@ namespace Fifa.Core.Services
         void SaveTeam(User user);
 
         void DeleteUser(User user);
-
-        void CalculateStats(int userId);
     }
 }

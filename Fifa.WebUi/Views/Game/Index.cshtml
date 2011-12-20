@@ -34,7 +34,7 @@
             @item.PlayerB.Name (@item.TeamB.Name)
         </td>
         <td>
-            @item.Date
+            @item.Date.ToShortDateString()
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

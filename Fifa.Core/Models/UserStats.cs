@@ -14,6 +14,8 @@ namespace Fifa.Core.Models
 
         public decimal WinRate { get; set; }
 
+        public decimal Elo { get; set; }
+
         public DateTime CalcDate { get; set; }
     }
 }

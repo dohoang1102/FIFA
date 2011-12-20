@@ -68,6 +68,8 @@
     <Compile Include="Repositories\IUserStatsRepository.cs" />
     <Compile Include="Services\IGameService.cs" />
     <Compile Include="Services\Impl\GameService.cs" />
+    <Compile Include="Services\IStatsService.cs" />
+    <Compile Include="Services\Impl\StatsService.cs" />
     <Compile Include="Services\Impl\TeamService.cs" />
     <Compile Include="Services\Impl\UserService.cs" />
     <Compile Include="Services\ITeamService.cs" />
