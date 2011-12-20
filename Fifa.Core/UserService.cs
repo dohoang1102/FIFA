@@ -49,7 +49,7 @@ namespace Fifa.Core
             stats.Losses = stats.Games - stats.Wins - stats.Ties;
             if (stats.Games > 0)
             {
-                stats.WinRate = stats.Wins * 0.1m / stats.Games * 100;
+                stats.WinRate = stats.Wins * 1.00m / stats.Games * 100;
             }
             Repository.UserStats.SaveUserStats(stats);
         }
