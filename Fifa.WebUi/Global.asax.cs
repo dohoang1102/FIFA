@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -7,9 +8,8 @@ using Autofac;
 using Autofac.Integration.Mvc;
 
 using Combres;
-using log4net;
 
-using System.Linq;
+using log4net;
 
 namespace Fifa.WebUi
 {
