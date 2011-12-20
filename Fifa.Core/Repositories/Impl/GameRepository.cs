@@ -7,7 +7,7 @@ using Fifa.Core.Repositories.Filters;
 
 namespace Fifa.Core.Repositories.Impl
 {
-    public class GameRepository : IGameRepository
+    public class GameRepository : RepositoryBase, IGameRepository
     {
         public void DeleteGame(int id)
         {
@@ -23,7 +23,7 @@ namespace Fifa.Core.Repositories.Impl
         {
             using (var context = new MainContext())
             {
-                Repository.UpdateEntity(context, game);
+                UpdateEntity(context, game);
                 context.SaveChanges();
             }
         }

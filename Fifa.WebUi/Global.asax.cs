@@ -32,7 +32,7 @@ namespace Fifa.WebUi
         /// <param name="filters">
         /// The filters.
         /// </param>
-        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+        public void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
         }
@@ -43,7 +43,7 @@ namespace Fifa.WebUi
         /// <param name="routes">
         /// The routes.
         /// </param>
-        public static void RegisterRoutes(RouteCollection routes)
+        public void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{*aspx}", new { aspx = @".*\.aspx(/.*)?" });
             routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });

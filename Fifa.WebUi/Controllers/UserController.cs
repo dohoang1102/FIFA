@@ -2,27 +2,35 @@
 
 using Fifa.Core;
 using Fifa.Core.Models;
+using Fifa.Core.Services;
 using Fifa.Models;
 
 namespace Fifa.WebUi.Controllers
 {
     public class UserController : Controller
     {
+        private readonly IUserService userService;
+
+        public UserController(IUserService userService)
+        {
+            this.userService = userService;
+        }
+
         public ActionResult Index()
         {
-            var users = UserService.GetAllUsers();
+            var users = userService.GetAllUsers();
             return View(users);
         }
 
         public ActionResult Create()
         {
-            var user = UserService.CreateUser();
+            var user = userService.CreateUser();
             return View("Edit", user);
         }
 
         public ActionResult Edit(int id)
         {
-            var user = UserService.GetUser(id);
+            var user = userService.GetUser(id);
             return View(user);
         }
 
@@ -31,17 +39,15 @@ namespace Fifa.WebUi.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (UserService.SaveTeam(user))
-                {
-                    return RedirectToAction("Index");
-                }
+                userService.SaveTeam(user);
+                return RedirectToAction("Index");
             }
             return View(user);
         }
 
         public ActionResult Delete(int id)
         {
-            var user = UserService.GetUser(id);
+            var user = userService.GetUser(id);
             return View(user);
         }
 
@@ -50,10 +56,8 @@ namespace Fifa.WebUi.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (UserService.DeleteUser(user))
-                {
-                    return RedirectToAction("Index");
-                }
+                userService.DeleteUser(user);
+                return RedirectToAction("Index");
             }
             return View(user);
         }

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Fifa.Core.Repositories.Impl
 {
-    public static class EntityFrameworkExtension
+    public static class EntityFrameworkExtensions
     {
         public static IEnumerable<TSource> WhereIf<TSource>(this IQueryable<TSource> source, bool condition, Func<TSource, bool> predicate)
         {
@@ -12,6 +12,7 @@ namespace Fifa.Core.Repositories.Impl
             {
                 return source.Where(predicate);
             }
+
             return source;
         }
     }

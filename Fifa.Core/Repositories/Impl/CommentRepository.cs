@@ -5,7 +5,7 @@ using Fifa.Core.Models;
 
 namespace Fifa.Core.Repositories.Impl
 {
-    public class CommentRepository : ICommentRepository
+    public class CommentRepository : RepositoryBase, ICommentRepository
     {
         public void DeleteComment(int id)
         {
@@ -21,7 +21,7 @@ namespace Fifa.Core.Repositories.Impl
         {
             using (var context = new MainContext())
             {
-                Repository.UpdateEntity(context, comment);
+                UpdateEntity(context, comment);
                 context.SaveChanges();
             }
         }

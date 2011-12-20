@@ -19,6 +19,8 @@ namespace Fifa.Core.Repositories.Impl
         static  MainContext()
         {
             //не надо так делать. потому что кто-то может зайте в дебаге на продакшин базу и пипец всем данным.
+            // thats why I wrote remove this hack! :)
+            // btw this is not production code yet, is it?
             //Database.SetInitializer(new DropCreateDatabaseAlways<MainContext>());
         }
 #endif

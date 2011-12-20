@@ -5,7 +5,7 @@ using Fifa.Core.Models;
 
 namespace Fifa.Core.Repositories.Impl
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : RepositoryBase, IUserRepository
     {
         public void DeleteUser(int id)
         {
@@ -21,7 +21,7 @@ namespace Fifa.Core.Repositories.Impl
         {
             using (var context = new MainContext())
             {
-                Repository.UpdateEntity(context, user);
+                UpdateEntity(context, user);
                 context.SaveChanges();
             }
         }

@@ -1,7 +1,8 @@
 ﻿@model int
            
 @{
-    var repo = Fifa.Core.UserService.GetAllUsers();
+    var userService = new Fifa.Core.UserService();
+    var repo = userService.GetAllUsers();
     var html = Html.DropDownListFor(x => x, repo.Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.Name, Selected = Model != null && Model == x.Id }), "Select...");
 }
 

@@ -5,7 +5,7 @@ using Fifa.Core.Models;
 
 namespace Fifa.Core.Repositories.Impl
 {
-    public class TeamRepository : ITeamRepository
+    public class TeamRepository : RepositoryBase, ITeamRepository
     {
         public void DeleteTeam(int id)
         {
@@ -21,7 +21,7 @@ namespace Fifa.Core.Repositories.Impl
         {
             using (var context = new MainContext())
             {
-                Repository.UpdateEntity(context, team);
+                UpdateEntity(context, team);
                 context.SaveChanges();
             }
         }

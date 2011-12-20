@@ -1,26 +1,34 @@
 ﻿using System.Web.Mvc;
 using Fifa.Core;
 using Fifa.Core.Models;
+using Fifa.Core.Services;
 
 namespace Fifa.WebUi.Controllers
 {
     public class GameController : Controller
     {
+        private readonly IGameService gameService;
+
+        public GameController(IGameService gameService)
+        {
+            this.gameService = gameService;
+        }
+
         public ActionResult Index()
         {
-            var games = GameService.GetAllGames();
+            var games = gameService.GetAllGames();
             return View(games);
         }
 
         public ActionResult Create()
         {
-            var game = GameService.CreateGame();
+            var game = gameService.CreateGame();
             return View("Edit", game);
         }
 
         public ActionResult Edit(int id)
         {
-            var team = GameService.GetTeam(id);
+            var team = gameService.GetTeam(id);
             return View(team);
         }
 
@@ -29,17 +37,15 @@ namespace Fifa.WebUi.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (GameService.SaveGame(game))
-                {
-                    return RedirectToAction("Index");
-                }
+                gameService.SaveGame(game);
+                return RedirectToAction("Index");
             }
             return View(game);
         }
 
         public ActionResult Delete(int id)
         {
-            var game = GameService.GetTeam(id);
+            var game = gameService.GetTeam(id);
             return View(game);
         }
 
@@ -48,10 +54,8 @@ namespace Fifa.WebUi.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (GameService.DeleteGame(game))
-                {
-                    return RedirectToAction("Index");
-                }
+                gameService.DeleteGame(game);
+                return RedirectToAction("Index");
             }
             return View(game);
         }

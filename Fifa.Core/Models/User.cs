@@ -14,8 +14,11 @@ namespace Fifa.Core.Models
         [StringLength(LengthName)]
         public string PasswordHash { get; set; }
 
+        // TODO rename to PasswordSalt, but don't lose all data!
         [StringLength(LengthName)]
         public string Password { get; set; }
+
+        // TODO add IsAdmin field
 
         public DateTime RegistrationDate { get; set; }
 

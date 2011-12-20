@@ -42,7 +42,6 @@
     <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameService.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Game.cs" />
@@ -55,10 +54,10 @@
     <Compile Include="Repositories\ICommentRepository.cs" />
     <Compile Include="Repositories\IGameRepository.cs" />
     <Compile Include="Repositories\Impl\CommentRepository.cs" />
-    <Compile Include="Repositories\Impl\EntityFrameworkExtension.cs" />
+    <Compile Include="Repositories\Impl\EntityFrameworkExtensions.cs" />
     <Compile Include="Repositories\Impl\GameRepository.cs" />
     <Compile Include="Repositories\Impl\MainContext.cs" />
-    <Compile Include="Repositories\Impl\Repository.cs" />
+    <Compile Include="Repositories\Impl\RepositoryBase.cs" />
     <Compile Include="Repositories\Impl\TeamRepository.cs" />
     <Compile Include="Repositories\Impl\TournamentRepository.cs" />
     <Compile Include="Repositories\Impl\UserRepository.cs" />
@@ -67,8 +66,12 @@
     <Compile Include="Repositories\ITournamentRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\IUserStatsRepository.cs" />
-    <Compile Include="TeamService.cs" />
-    <Compile Include="UserService.cs" />
+    <Compile Include="Services\IGameService.cs" />
+    <Compile Include="Services\Impl\GameService.cs" />
+    <Compile Include="Services\Impl\TeamService.cs" />
+    <Compile Include="Services\Impl\UserService.cs" />
+    <Compile Include="Services\ITeamService.cs" />
+    <Compile Include="Services\IUserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
