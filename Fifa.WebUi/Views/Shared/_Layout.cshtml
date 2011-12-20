@@ -1,14 +1,18 @@
 ﻿@using Combres.Mvc
 @using Fifa.WebUi.Helpers
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-        <head>
+    
+    <head>
         <title>FIFA-A-A - @ViewBag.Title</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         @Html.CombresLink("styles")
         @Html.CombresLink("scripts")
-    </head>    <body>
+    </head>
+
+    <body>
         <div id="wrapper" class="container_12 clearfix">
             <!-- Text Logo -->
             <h1 id="logo" class="grid_4"><a href="@Url.Action("Index", "Home")">FIFA-A-A</a></h1>
@@ -30,9 +34,13 @@
 		
             <!-- Footer -->
             <p class="grid_12 footer clearfix">
-                <span class="float"><b>Copyright &copy; <a href="https://github.com/fomaa/FIFA/contributors">FIFA Development Team, 2011</a></b>. Design by <a href="http://www.csstemplatesfree.org/aurelius.html">QwibbleDesigns</a>.</span>
+                <span class="float"><b>Copyright &copy; <a href="https://github.com/fomaa/FIFA/contributors">
+                    FIFA-A-A Development Team, 2011</a></b>. Design by 
+                    <a href="http://www.csstemplatesfree.org/aurelius.html">QwibbleDesigns</a>.
+                </span>
             </p>
 		
         </div><!--end wrapper-->
-    </body>
+    </body>
+
 </html>

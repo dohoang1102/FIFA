@@ -2,8 +2,14 @@
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+
+using Autofac;
+using Autofac.Integration.Mvc;
+
 using Combres;
 using log4net;
+
+using System.Linq;
 
 namespace Fifa.WebUi
 {
@@ -58,6 +64,20 @@ namespace Fifa.WebUi
                 );
         }
 
+        public void SetupRependencyResolver()
+        {
+            var builder = new ContainerBuilder();
+
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies()
+                .Where(x => x.FullName.StartsWith("Fifa")).ToArray();
+            builder.RegisterAssemblyTypes(assemblies).AsImplementedInterfaces();
+
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+        }
+
         #endregion
 
         #region Methods
@@ -73,6 +93,8 @@ namespace Fifa.WebUi
             RegisterRoutes(RouteTable.Routes);
 
             RouteTable.Routes.AddCombresRoute("CombresRoute");
+
+            SetupRependencyResolver();
         }
 
         /// <summary>
