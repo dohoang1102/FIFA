@@ -16,11 +16,17 @@ namespace Fifa.Core.Helpers
         private double _ratingA;
         private double _ratingB;
 
-        public EloCalculator(decimal ratingPlayerA, decimal ratingPlayerB):
-            this((double)ratingPlayerA, (double)ratingPlayerB)
-        {
-        }
+        public EloCalculator(decimal ratingPlayerA, decimal ratingPlayerB)
+            : this((double)ratingPlayerA, (double)ratingPlayerB)
+        {}
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EloCalculator"/> class.
+        /// </summary>
+        /// <param name="ratingPlayerA">The current rating of player A.</param>
+        /// <param name="ratingPlayerB">The current rating of player B.</param>
+        /// <param name="maxRatingGain">The max possible rating gain in case of win.</param>
+        /// <param name="steadyRatingLimit">The steady rating limit under which rating will not decrease.</param>
         public EloCalculator(double ratingPlayerA, double ratingPlayerB, double maxRatingGain = MaxRatingGain,
             double steadyRatingLimit = SteadyRatingLimit)
         {
@@ -31,26 +37,47 @@ namespace Fifa.Core.Helpers
             _steadyLimit = steadyRatingLimit;
         }
 
+        /// <summary>
+        /// Gets the chance that player A will win game.
+        /// </summary>
         public double ChanceToWinPlayerA
         {
             get { return calcChanceToWin(_ratingB, _ratingA); }
         }
 
+        /// <summary>
+        /// Gets the chance that player B will win game.
+        /// </summary>
         public double ChanceToWinPlayerB
         {
             get { return calcChanceToWin(_ratingA, _ratingB); }
         }
 
+        /// <summary>
+        /// Gets or sets the current rating of player A.
+        /// </summary>
+        /// <value>
+        /// The current rating of player A.
+        /// </value>
         public decimal RatingPlayerA
         {
-            get { return (decimal)_ratingA; }
+            get { return decimal.Round( (decimal)_ratingA,2); }
         }
 
+        /// <summary>
+        /// Gets or sets the current rating of player B.
+        /// </summary>
+        /// <value>
+        /// The current rating of player B.
+        /// </value>
         public decimal RatingPlayerB
         {
-            get { return (decimal)_ratingB; }
+            get { return decimal.Round((decimal)_ratingB,2); }
         }
 
+        /// <summary>
+        /// Calculates ratings after win of player A.
+        /// </summary>
         public void WinGamePlayerA()
         {
             _ratingA += _maxGain * (1 - ChanceToWinPlayerA);
@@ -59,6 +86,9 @@ namespace Fifa.Core.Helpers
                 _ratingB -= _maxGain * ChanceToWinPlayerB;
         }
 
+        /// <summary>
+        /// Calculates ratings after win of player B.
+        /// </summary>
         public void WinGamePlayerB()
         {
             if (_ratingA >= _steadyLimit)
@@ -67,6 +97,9 @@ namespace Fifa.Core.Helpers
             _ratingB += _maxGain * (1 - ChanceToWinPlayerB);
         }
 
+        /// <summary>
+        /// Calculates ratings after draw game.
+        /// </summary>
         public void DrawGame()
         {
             _ratingA += _maxGain * (1 - ChanceToWinPlayerA);
