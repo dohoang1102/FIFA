@@ -81,7 +81,9 @@ namespace Fifa.Core.Helpers
             _ratingA += _maxGain * (1 - ChanceToWinPlayerA);
 
             if (_ratingB >= _steadyLimit)
+            {
                 _ratingB -= _maxGain * ChanceToWinPlayerB;
+            }
         }
 
         /// <summary>
@@ -90,7 +92,9 @@ namespace Fifa.Core.Helpers
         public void WinGamePlayerB()
         {
             if (_ratingA >= _steadyLimit)
+            {
                 _ratingA -= _maxGain * ChanceToWinPlayerA;
+            }
 
             _ratingB += _maxGain * (1 - ChanceToWinPlayerB);
         }
@@ -100,8 +104,8 @@ namespace Fifa.Core.Helpers
         /// </summary>
         public void DrawGame()
         {
-            _ratingA += _maxGain * (1 - ChanceToWinPlayerA);
-            _ratingB += _maxGain * (1 - ChanceToWinPlayerB);
+            _ratingA += (_maxGain / 2) * (1 - ChanceToWinPlayerA);
+            _ratingB += (_maxGain / 2) * (1 - ChanceToWinPlayerB);
         }
 
         private double calcChanceToWin(double rating1, double rating2)
