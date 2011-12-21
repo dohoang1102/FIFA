@@ -46,8 +46,8 @@ namespace Fifa.Core.Services.Impl
                     elo.DrawGame();
                 }
 
-                playerA.Elo = elo.RatingPlayerA;
-                playerB.Elo = elo.RatingPlayerB;
+                playerA.Elo = (decimal)elo.RatingPlayerA;
+                playerB.Elo = (decimal)elo.RatingPlayerB;
             }
 
             foreach(var stat in stats.Values)
@@ -64,11 +64,11 @@ namespace Fifa.Core.Services.Impl
             stats.Wins = games.Where(x =>
                     (x.PlayerAId == userId && x.ScoreA > x.ScoreB) ||
                     (x.PlayerBId == userId && x.ScoreA < x.ScoreB)).Count();
-            stats.Ties = games.Where(x => x.ScoreA == x.ScoreB).Count();
-            stats.Losses = stats.Games - stats.Wins - stats.Ties;
+            stats.Draws = games.Where(x => x.ScoreA == x.ScoreB).Count();
+            stats.Losses = stats.Games - stats.Wins - stats.Draws;
             if (stats.Games > 0)
             {
-                stats.WinRate = decimal.Round((stats.Wins * 1.0000m + stats.Ties * 0.5000m) / stats.Games * 100, 2);
+                stats.WinRate = decimal.Round((stats.Wins * 1.0000m + stats.Draws * 0.5000m) / stats.Games * 100, 2);
             }
             userStatsRepository.SaveUserStats(stats);
         }
