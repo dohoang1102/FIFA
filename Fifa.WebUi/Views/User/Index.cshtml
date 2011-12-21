@@ -26,6 +26,9 @@
         <th>
             Rate
         </th>
+        <th>
+            Elo
+        </th>
         <th></th>
     </tr>
 
@@ -37,9 +40,8 @@
         <td>@item.UserStats.Wins</td>
         <td>@item.UserStats.Ties</td>
         <td>@item.UserStats.Losses</td>
-        <td>
-            @item.UserStats.WinRate
-        </td>
+        <td>@item.UserStats.WinRate</td>
+        <td>@item.UserStats.Elo</td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })

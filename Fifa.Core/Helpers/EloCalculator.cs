@@ -16,6 +16,11 @@ namespace Fifa.Core.Helpers
         private double _ratingA;
         private double _ratingB;
 
+        public EloCalculator(decimal ratingPlayerA, decimal ratingPlayerB):
+            this((double)ratingPlayerA, (double)ratingPlayerB)
+        {
+        }
+
         public EloCalculator(double ratingPlayerA, double ratingPlayerB, double maxRatingGain = MaxRatingGain,
             double steadyRatingLimit = SteadyRatingLimit)
         {
@@ -36,16 +41,14 @@ namespace Fifa.Core.Helpers
             get { return calcChanceToWin(_ratingA, _ratingB); }
         }
 
-        public double RatingPlayerA
+        public decimal RatingPlayerA
         {
-            get { return _ratingA; }
-            set { _ratingA = value; }
+            get { return (decimal)_ratingA; }
         }
 
-        public double RatingPlayerB
+        public decimal RatingPlayerB
         {
-            get { return _ratingB; }
-            set { _ratingB = value; }
+            get { return (decimal)_ratingB; }
         }
 
         public void WinGamePlayerA()
