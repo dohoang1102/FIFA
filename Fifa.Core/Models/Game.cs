@@ -25,5 +25,13 @@ namespace Fifa.Core.Models
         public Team TeamB { get; set; }
 
         public DateTime Date { get; set; }
+
+        public bool IsReadOnly
+        {
+            get
+            {
+                return DateTime.Now.AddHours(-3) > Date;
+            }
+        }
     }
 }
