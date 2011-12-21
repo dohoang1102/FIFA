@@ -16,6 +16,11 @@ namespace Fifa.Core.Helpers
         private double _ratingA;
         private double _ratingB;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EloCalculator"/> class.
+        /// </summary>
+        /// <param name="ratingPlayerA">The current rating of player A.</param>
+        /// <param name="ratingPlayerB">The current rating of player B.</param>
         public EloCalculator(decimal ratingPlayerA, decimal ratingPlayerB)
             : this((double)ratingPlayerA, (double)ratingPlayerB)
         {}
@@ -59,9 +64,10 @@ namespace Fifa.Core.Helpers
         /// <value>
         /// The current rating of player A.
         /// </value>
-        public decimal RatingPlayerA
+        public double RatingPlayerA
         {
-            get { return decimal.Round( (decimal)_ratingA,2); }
+            get { return _ratingA; }
+            set { _ratingA = value; }
         }
 
         /// <summary>
@@ -70,9 +76,10 @@ namespace Fifa.Core.Helpers
         /// <value>
         /// The current rating of player B.
         /// </value>
-        public decimal RatingPlayerB
+        public double RatingPlayerB
         {
-            get { return decimal.Round((decimal)_ratingB,2); }
+            get { return _ratingB; }
+            set { _ratingB = value; }
         }
 
         /// <summary>
@@ -110,7 +117,7 @@ namespace Fifa.Core.Helpers
             _ratingB += (_maxGain / 2) * (1 - ChanceToWinPlayerB);
         }
 
-        private double calcChanceToWin(double rating1, double rating2)
+        private static double calcChanceToWin(double rating1, double rating2)
         {
             return 1 / (1 + Math.Pow(10, (rating1 - rating2) / 400));
         }
