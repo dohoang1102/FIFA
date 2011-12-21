@@ -2,6 +2,7 @@
 {
     public interface IStatsService
     {
-        void CalculateStats(int userId);
+        void CalculateUser(int userId);
+        void CalculateEloAll();
     }
 }

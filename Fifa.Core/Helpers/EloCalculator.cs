@@ -8,13 +8,17 @@ namespace Fifa.Core.Helpers
     public class EloCalculator
     {
         public const double MaxRatingGain = 100;
-        public const double SteadyRatingLimit = 1000;
+        public const double SteadyRatingLimit = 500;
 
         private readonly double _maxGain;
         private readonly double _steadyLimit;
 
         private double _ratingA;
         private double _ratingB;
+
+        public EloCalculator(decimal ratingPlayerA, decimal ratingPlayerB)
+            : this((double)ratingPlayerA, (double)ratingPlayerB)
+        {}
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EloCalculator"/> class.
@@ -55,10 +59,9 @@ namespace Fifa.Core.Helpers
         /// <value>
         /// The current rating of player A.
         /// </value>
-        public double RatingPlayerA
+        public decimal RatingPlayerA
         {
-            get { return _ratingA; }
-            set { _ratingA = value; }
+            get { return decimal.Round( (decimal)_ratingA,2); }
         }
 
         /// <summary>
@@ -67,10 +70,9 @@ namespace Fifa.Core.Helpers
         /// <value>
         /// The current rating of player B.
         /// </value>
-        public double RatingPlayerB
+        public decimal RatingPlayerB
         {
-            get { return _ratingB; }
-            set { _ratingB = value; }
+            get { return decimal.Round((decimal)_ratingB,2); }
         }
 
         /// <summary>
