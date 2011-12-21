@@ -8,7 +8,7 @@ namespace Fifa.Core.Helpers
     public class EloCalculator
     {
         public const double MaxRatingGain = 100;
-        public const double SteadyRatingLimit = 1000;
+        public const double SteadyRatingLimit = 500;
 
         private readonly double _maxGain;
         private readonly double _steadyLimit;

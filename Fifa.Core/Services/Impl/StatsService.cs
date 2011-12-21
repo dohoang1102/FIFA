@@ -78,7 +78,9 @@ namespace Fifa.Core.Services.Impl
             if (!stats.ContainsKey(userId))
             {
                 var user = _UserRepository.GetUser(userId);
-                stats.Add(userId, userStatsRepository.GetUserStats(user.UserStatsId));
+                var userStat = userStatsRepository.GetUserStats(user.UserStatsId);
+                userStat.Elo = 0;
+                stats.Add(userId, userStat);
             }
             return stats[userId];
         }
