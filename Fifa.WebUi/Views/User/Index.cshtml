@@ -34,14 +34,12 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
+        <td>@item.Name</td>
         <td>@item.UserStats.Wins</td>
         <td>@item.UserStats.Draws</td>
         <td>@item.UserStats.Losses</td>
-        <td>@item.UserStats.WinRate</td>
-        <td>@item.UserStats.Elo</td>
+        <td>@item.UserStats.WinRate.ToString("F2")</td>
+        <td>@item.UserStats.Elo.ToString("F2")</td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
