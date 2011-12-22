@@ -15,7 +15,7 @@ namespace Fifa.Core.Tests
             decimal newRatingA = (decimal)elo.RatingPlayerA;
             decimal newRatingB = (decimal)elo.RatingPlayerB;
             Assert.AreEqual(1050, newRatingA);
-            Assert.AreEqual(957.146311740838M, newRatingB);
+            Assert.AreEqual(950, newRatingB);
         }
 
         [Test]
@@ -58,8 +58,8 @@ namespace Fifa.Core.Tests
             elo.WinGamePlayerA();
             decimal newRatingA = (decimal)elo.RatingPlayerA;
             decimal newRatingB = (decimal)elo.RatingPlayerB;
-            Assert.AreEqual(2000.31523091833M, newRatingA);
-            Assert.AreEqual(999.685338787449M, newRatingB);
+            Assert.AreEqual(2000.315230918, (double)newRatingA, 0.00001);
+            Assert.AreEqual(999.684769081, (double)newRatingB, 0.00001);
         }
 
         [Test]
@@ -69,8 +69,8 @@ namespace Fifa.Core.Tests
             elo.WinGamePlayerB();
             decimal newRatingA = (decimal)elo.RatingPlayerA;
             decimal newRatingB = (decimal)elo.RatingPlayerB;
-            Assert.AreEqual(1900.31523091833M, newRatingA);
-            Assert.AreEqual(1099.44181141685M, newRatingB);
+            Assert.AreEqual(1900.315230918, (double)newRatingA, 0.00001);
+            Assert.AreEqual(1099.684769081, (double)newRatingB, 0.00001);
         }
 
         [Test]
@@ -80,30 +80,30 @@ namespace Fifa.Core.Tests
             elo.DrawGame();
             decimal newRatingA = (decimal)elo.RatingPlayerA;
             decimal newRatingB = (decimal)elo.RatingPlayerB;
-            Assert.AreEqual(2000.15761545916M, newRatingA);
-            Assert.AreEqual(1049.84252703149M, newRatingB);
+            Assert.AreEqual(2000.157615459, (double)newRatingA, 0.00001);
+            Assert.AreEqual(1049.842384540, (double)newRatingB, 0.00001);
         }
 
         [Test]
-        public void StrengthPlayerWinOnLohPlayer()
+        public void StrengthPlayerWinOnWeakPlayer()
         {
             var elo = new EloCalculator(1000, 100);
             elo.WinGamePlayerA();
             decimal newRatingA = (decimal)elo.RatingPlayerA;
             decimal newRatingB = (decimal)elo.RatingPlayerB;
-            Assert.AreEqual(1000.55919673088M, newRatingA);
+            Assert.AreEqual(1000.5591967308, (double)newRatingA, 0.00001);
             Assert.AreEqual(100, newRatingB);
         }
 
         [Test]
-        public void StrengthPlayerLossOnLohPlayer()
+        public void StrengthPlayerLossOnWeakPlayer()
         {
             var elo = new EloCalculator(1000, 100);
             elo.WinGamePlayerB();
             decimal newRatingA = (decimal)elo.RatingPlayerA;
             decimal newRatingB = (decimal)elo.RatingPlayerB;
-            Assert.AreEqual(900.559196730884M, newRatingA);
-            Assert.AreEqual(199.013051585137M, newRatingB);
+            Assert.AreEqual(900.55919673088, (double)newRatingA, 0.00001);
+            Assert.AreEqual(199.4408032691, (double)newRatingB, 0.00001);
         }
     }
 }
