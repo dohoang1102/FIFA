@@ -58,7 +58,7 @@ namespace Fifa.Core.Services.Impl
 
         public void CalculateUser(int userId)
         {
-            var stats = userStatsRepository.GetUserStats(userId);
+            var stats = getUserStat(userId);
             var games = gameRepository.GetAllGames(new GameFilter { UserId = userId }).ToList();
             stats.Games = games.Count();
             stats.Wins = games.Where(x =>
@@ -77,12 +77,17 @@ namespace Fifa.Core.Services.Impl
         {
             if (!stats.ContainsKey(userId))
             {
-                var user = _UserRepository.GetUser(userId);
-                var userStat = userStatsRepository.GetUserStats(user.UserStatsId);
+                var userStat = getUserStat(userId);
                 userStat.Elo = 0;
                 stats.Add(userId, userStat);
             }
             return stats[userId];
+        }
+
+        private UserStats getUserStat(int userId)
+        {
+            var user = _UserRepository.GetUser(userId);
+            return userStatsRepository.GetUserStats(user.UserStatsId);
         }
     }
 }
