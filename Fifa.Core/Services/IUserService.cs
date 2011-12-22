@@ -12,7 +12,7 @@ namespace Fifa.Core.Services
 
         User GetUser(int id);
 
-        void SaveTeam(User user);
+        void SaveUser(User user);
 
         void DeleteUser(User user);
     }

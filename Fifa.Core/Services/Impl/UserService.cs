@@ -30,8 +30,12 @@ namespace Fifa.Core.Services.Impl
             return userRepository.GetUser(id);
         }
 
-        public void SaveTeam(User user)
+        public void SaveUser(User user)
         {
+            if (user.UserStatsId == 0)
+            {
+                user.UserStats = new UserStats { CalcDate = DateTime.Now };
+            }
             userRepository.SaveUser(user);
         }
 

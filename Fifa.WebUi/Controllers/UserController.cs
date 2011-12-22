@@ -39,7 +39,7 @@ namespace Fifa.WebUi.Controllers
         {
             if (ModelState.IsValid)
             {
-                userService.SaveTeam(user);
+                userService.SaveUser(user);
                 return RedirectToAction("Index");
             }
             return View(user);
