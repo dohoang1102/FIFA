@@ -61,6 +61,7 @@ namespace Fifa.Core.Services.Impl
             var stats = GetUserStat(userId);
             var games = gameRepository.GetAllGames(new GameFilter { UserId = userId }).ToList();
             stats.Games = games.Count();
+            // TODO refactor this to RateCalculator (like EloCalculator)
             stats.Wins = games.Where(x =>
                     (x.PlayerAId == userId && x.ScoreA > x.ScoreB) ||
                     (x.PlayerBId == userId && x.ScoreA < x.ScoreB)).Count();
@@ -68,7 +69,7 @@ namespace Fifa.Core.Services.Impl
             stats.Losses = stats.Games - stats.Wins - stats.Draws;
             if (stats.Games > 0)
             {
-                stats.WinRate = decimal.Round((stats.Wins * 1.0000m + stats.Draws * 0.5000m) / stats.Games * 100, 2);
+                stats.WinRate = 100 * (stats.Wins + stats.Draws * 0.5m) / stats.Games;
             }
             userStatsRepository.SaveUserStats(stats);
         }

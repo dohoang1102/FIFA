@@ -8,7 +8,7 @@
     @Html.ActionLink("Create New", "Create") |
     @Html.ActionLink("Game Forecast", "Forecast")
 </p>
-<table class="games">
+<table>
     <tr>
         <th class="">
             Host
@@ -36,11 +36,11 @@
             @item.PlayerB.Name (@item.TeamB.Name)
         </td>
         <td>
-            @item.Date.ToShortDateString()
+            @item.Date.ToString("MMM dd, yyyy")
         </td>
         <td>
-            @Html.ActionLink(item.IsReadOnly ? "View" : "Edit", "Edit", new { id = item.Id })
-            @if (!item.IsReadOnly)
+            @Html.ActionLink(item.IsReadOnly ? "View": "Edit", "Edit", new { id=item.Id })
+            @if(!item.IsReadOnly)
             {
                 <span>| @Html.ActionLink("Delete", "Delete", new { id = item.Id })</span>
             }
