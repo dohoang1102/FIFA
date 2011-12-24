@@ -29,11 +29,11 @@
 {
     <tr>
         <td class="host">
-            @item.PlayerA.Name (@item.TeamA.Name)
+            <text class="@(item.ScoreA == item.ScoreB ? "normal-color" : item.ScoreA > item.ScoreB ? "positive-color" : "negative-color")">@item.PlayerA.Name (@item.TeamA.Name)</text>
         </td>
         <td class="centered">@item.ScoreA : @item.ScoreB</td>
         <td class="guest">
-            @item.PlayerB.Name (@item.TeamB.Name)
+            <text class="@(item.ScoreA == item.ScoreB ? "normal-color" : item.ScoreB > item.ScoreA ? "positive-color" : "negative-color")">@item.PlayerB.Name (@item.TeamB.Name)</text>
         </td>
         <td>
             @item.Date.ToString("MMM dd, yyyy")

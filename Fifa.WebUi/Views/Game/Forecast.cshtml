@@ -69,10 +69,10 @@
                     Chance to win
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.ChanceToWinPlayerA)%
+                    <text class="@(Model.ChanceToWinPlayerA >= 50 ? "positive-color" : "negative-color")">@Html.DisplayFor(model => model.ChanceToWinPlayerA)%</text>
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.ChanceToWinPlayerB)%
+                    <text class="@(Model.ChanceToWinPlayerB >= 50 ? "positive-color" : "negative-color")">@Html.DisplayFor(model => model.ChanceToWinPlayerB)%</text>
                 </td>
             </tr>
             <tr>
@@ -80,10 +80,10 @@
                     Rating after your win
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.RatingPlayerAWinPlayerA) (+@Html.DisplayFor(model => model.RatingChangePlayerAWinPlayerA))
+                    @Html.DisplayFor(model => model.RatingPlayerAWinPlayerA) (<text class="positive-color">+@Html.DisplayFor(model => model.RatingChangePlayerAWinPlayerA)</text>)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.RatingPlayerBWinPlayerA) (-@Html.DisplayFor(model => model.RatingChangePlayerBWinPlayerA))
+                    @Html.DisplayFor(model => model.RatingPlayerBWinPlayerA) (<text class="negative-color">-@Html.DisplayFor(model => model.RatingChangePlayerBWinPlayerA)</text>)
                 </td>
             </tr>
             <tr>
@@ -91,10 +91,10 @@
                     Rating after your lose
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.RatingPlayerAWinPlayerB) (-@Html.DisplayFor(model => model.RatingChangePlayerAWinPlayerB))
+                    @Html.DisplayFor(model => model.RatingPlayerAWinPlayerB) (<text class="negative-color">-@Html.DisplayFor(model => model.RatingChangePlayerAWinPlayerB)</text>)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.RatingPlayerBWinPlayerB) (+@Html.DisplayFor(model => model.RatingChangePlayerBWinPlayerB))
+                    @Html.DisplayFor(model => model.RatingPlayerBWinPlayerB) (<text class="positive-color">+@Html.DisplayFor(model => model.RatingChangePlayerBWinPlayerB)</text>)
                 </td>
             </tr>
             <tr>
@@ -102,10 +102,10 @@
                     Rating after draw game
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.RatingPlayerADrawGame) (+@Html.DisplayFor(model => model.RatingChangePlayerADrawGame))
+                    @Html.DisplayFor(model => model.RatingPlayerADrawGame) (<text class="positive-color">+@Html.DisplayFor(model => model.RatingChangePlayerADrawGame)</text>)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => model.RatingPlayerBDrawGame) (+@Html.DisplayFor(model => model.RatingChangePlayerBDrawGame))
+                    @Html.DisplayFor(model => model.RatingPlayerBDrawGame) (<text class="positive-color">+@Html.DisplayFor(model => model.RatingChangePlayerBDrawGame)</text>)
                 </td>
             </tr>
         </table>

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Fifa.Core.Helpers;
 using Fifa.Core.Models;
@@ -68,12 +69,9 @@ namespace Fifa.WebUi.Controllers
 
         public ActionResult Forecast()
         {
-            var userService = DependencyResolver.Current.GetService<IUserService>();
-
             var vm = new ForecastViewModel
             {
-                AvailablePlayers = userService.GetAllUsers().OrderBy(user => user.Name).Select(
-                    user => new SelectListItem { Text = user.Name, Value = user.Id.ToString() })
+                AvailablePlayers = getAvailablePlayersSelectListItems()
             };
 
             return View(vm);
@@ -82,8 +80,7 @@ namespace Fifa.WebUi.Controllers
         [HttpPost]
         public ActionResult Forecast(ForecastViewModel vm)
         {
-            vm.AvailablePlayers = _userService.GetAllUsers().OrderBy(user => user.Name).Select(
-                user => new SelectListItem { Text = user.Name, Value = user.Id.ToString() });
+            vm.AvailablePlayers = getAvailablePlayersSelectListItems();
             
             var playerA = _userService.GetUser(vm.PlayerAId);
             var playerB = _userService.GetUser(vm.PlayerBId);
@@ -115,6 +112,12 @@ namespace Fifa.WebUi.Controllers
             vm.Calculated = true;
             
             return View(vm);
+        }
+
+        private IEnumerable<SelectListItem> getAvailablePlayersSelectListItems()
+        {
+            return _userService.GetAllUsers().OrderBy(user => user.Name).Select(
+                user => new SelectListItem { Text = user.Name, Value = user.Id.ToString() });
         }
     }
 }
