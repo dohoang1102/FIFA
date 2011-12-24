@@ -5,7 +5,8 @@
 <h2>Games</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create") |
+    @Html.ActionLink("Game Forecast", "Forecast")
 </p>
 <table class="games">
     <tr>
@@ -24,7 +25,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td class="host">
             @item.PlayerA.Name (@item.TeamA.Name)
@@ -37,8 +39,8 @@
             @item.Date.ToShortDateString()
         </td>
         <td>
-            @Html.ActionLink(item.IsReadOnly?"View": "Edit", "Edit", new { id=item.Id })
-            @if(!item.IsReadOnly)
+            @Html.ActionLink(item.IsReadOnly ? "View" : "Edit", "Edit", new { id = item.Id })
+            @if (!item.IsReadOnly)
             {
                 <span>| @Html.ActionLink("Delete", "Delete", new { id = item.Id })</span>
             }

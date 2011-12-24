@@ -1,0 +1,121 @@
+﻿@using Fifa.WebUi.ViewModels.Game
+@model ForecastViewModel
+
+@{
+    ViewBag.Title = "Game results forecast";
+}
+
+<h2>Game results forecast</h2>
+
+@using (Html.BeginForm("Forecast", "Game", FormMethod.Post)) {
+    <table>
+        <tr>
+            <th>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PlayerAId)
+                </div>
+            </th>
+            <th></th>
+            <th>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PlayerBId)
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.PlayerAId, Model.AvailablePlayers)
+                    @Html.ValidationMessageFor(model => model.PlayerAId)
+                </div>
+            </td>
+            <td>
+                vs.
+            </td>
+            <td>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.PlayerBId, Model.AvailablePlayers)
+                    @Html.ValidationMessageFor(model => model.PlayerBId)
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    if (Model.Calculated)
+    {
+        <table>
+            <tr>
+                <th></th>
+                <th>
+                    You
+                </th>
+                <th>
+                    Opponent
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Current rating
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CurrentRatingPlayerA)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CurrentRatingPlayerB)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Chance to win
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.ChanceToWinPlayerA)%
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.ChanceToWinPlayerB)%
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Rating after your win
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.RatingPlayerAWinPlayerA) (+@Html.DisplayFor(model => model.RatingChangePlayerAWinPlayerA))
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.RatingPlayerBWinPlayerA) (-@Html.DisplayFor(model => model.RatingChangePlayerBWinPlayerA))
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Rating after your lose
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.RatingPlayerAWinPlayerB) (-@Html.DisplayFor(model => model.RatingChangePlayerAWinPlayerB))
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.RatingPlayerBWinPlayerB) (+@Html.DisplayFor(model => model.RatingChangePlayerBWinPlayerB))
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Rating after draw game
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.RatingPlayerADrawGame) (+@Html.DisplayFor(model => model.RatingChangePlayerADrawGame))
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.RatingPlayerBDrawGame) (+@Html.DisplayFor(model => model.RatingChangePlayerBDrawGame))
+                </td>
+            </tr>
+        </table>
+    }
+    
+    <p>
+        <input type="submit" value="Calculate" />
+    </p>
+}
+
+<div>
+    @Html.ActionLink("Back to Players List", "Index")
+</div>
