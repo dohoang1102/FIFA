@@ -18,6 +18,11 @@ namespace Fifa.Core.Models
         [StringLength(LengthName)]
         public string Password { get; set; }
 
+        /// <summary>
+        /// Gets or sets the color which identify the user.
+        /// </summary>
+        public string Color { get; set; }
+
         // TODO add IsAdmin field
 
         public DateTime RegistrationDate { get; set; }
