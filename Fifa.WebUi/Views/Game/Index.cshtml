@@ -36,7 +36,7 @@
             <text class="@(item.ScoreA == item.ScoreB ? "normal-color" : item.ScoreB > item.ScoreA ? "positive-color" : "negative-color")">@item.PlayerB.Name (@item.TeamB.Name)</text>
         </td>
         <td>
-            @item.Date.ToString("MMM dd, yyyy")
+            <text class="@(item.Date >= DateTime.Now.Date ? "today-color" : "old-day-color")">@item.Date.ToString("MMM dd, yyyy")</text>
         </td>
         <td>
             @Html.ActionLink(item.IsReadOnly ? "View": "Edit", "Edit", new { id=item.Id })
