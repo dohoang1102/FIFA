@@ -1,9 +1,7 @@
 ﻿using System.Web.Mvc;
 
-using Fifa.Core;
 using Fifa.Core.Models;
 using Fifa.Core.Services;
-using Fifa.Models;
 
 namespace Fifa.WebUi.Controllers
 {
@@ -60,6 +58,11 @@ namespace Fifa.WebUi.Controllers
                 return RedirectToAction("Index");
             }
             return View(user);
+        }
+
+        public ActionResult History(int id)
+        {
+            return RedirectToAction("Index");
         }
     }
 }

@@ -14,20 +14,10 @@ namespace Fifa.Core.Repositories.Impl
         public DbSet<User> Users { get; set; }
         public DbSet<UserStats> UserStats { get; set; }
 
-        // TODO: remove this hack
-#if DEBUG
-        static  MainContext()
-        {
-            //не надо так делать. потому что кто-то может зайте в дебаге на продакшин базу и пипец всем данным.
-            // thats why I wrote remove this hack! :)
-            // btw this is not production code yet, is it?
-            //Database.SetInitializer(new DropCreateDatabaseAlways<MainContext>());
-        }
-#endif
-
         public MainContext()
             : base("name=fifa")
         {
+            Database.SetInitializer(new CreateDatabaseIfNotExists<MainContext>());
             Configuration.LazyLoadingEnabled = false;
         }
 

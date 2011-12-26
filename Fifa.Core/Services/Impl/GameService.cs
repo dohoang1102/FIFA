@@ -37,10 +37,7 @@ namespace Fifa.Core.Services.Impl
         public void SaveGame(Game game)
         {
             gameRepository.SaveGame(game);
-
-            statsService.CalculateUser(game.PlayerAId);
-            statsService.CalculateUser(game.PlayerBId);
-            statsService.CalculateEloAll();
+            statsService.CalculateAll();
         }
 
         public void DeleteGame(Game game)

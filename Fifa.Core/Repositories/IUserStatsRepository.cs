@@ -10,5 +10,7 @@ namespace Fifa.Core.Repositories
         void SaveUserStats(UserStats user);
         UserStats GetUserStats(int id);
         IEnumerable<UserStats> GetAllUserStats();
+        void RemoveAll();
+        void SetLastStatsForUser();
     }
 }

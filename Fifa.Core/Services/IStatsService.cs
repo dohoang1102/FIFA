@@ -4,5 +4,6 @@
     {
         void CalculateUser(int userId);
         void CalculateEloAll();
+        void CalculateAll();
     }
 }

@@ -42,5 +42,33 @@ namespace Fifa.Core.Repositories.Impl
                 return context.UserStats.ToList();
             }
         }
+
+        public void RemoveAll()
+        {
+            using (var context = new MainContext())
+            {
+                //context.Database.ExecuteSqlCommand("UPDATE dbo.Users SET UserStatsId = NULL");
+
+                foreach (var stat in context.UserStats.ToList())
+                {
+                    context.Entry(stat).State = EntityState.Deleted;
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void SetLastStatsForUser()
+        {
+//            using (var context = new MainContext())
+//            {
+//                context.Database.ExecuteSqlCommand(@"
+//UPDATE	x
+//	SET	x.UserStatsId=(	SELECT TOP 1 s.Id
+//						FROM dbo.UserStats s
+//						WHERE s.UserId = x.Id
+//						ORDER BY s.CalcDate DESC)
+//FROM	dbo.Users x)");
+//            }
+        }
     }
 }

@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Fifa.Core.Models
 {
@@ -14,15 +16,42 @@ namespace Fifa.Core.Models
         [StringLength(LengthName)]
         public string PasswordHash { get; set; }
 
-        // TODO rename to PasswordSalt, but don't lose all data!
         [StringLength(LengthName)]
-        public string Password { get; set; }
+        public string PasswordSalt { get; set; }
 
-        // TODO add IsAdmin field
+        public int Role { get; set; }
+
+        public bool IsAdmin
+        {
+            get
+            {
+                return (Role & 1) > 0;
+            }
+        }
 
         public DateTime RegistrationDate { get; set; }
 
-        public int UserStatsId { get; set; }
-        public UserStats UserStats { get; set; }
+        public ICollection<UserStats> UserStats { get; set; }
+
+        //это часть тупости из репозитария
+        private UserStats _LastUserStats;
+        public UserStats LastUserStats
+        {
+            get
+            {
+                if (_LastUserStats == null)
+                {
+                    if (UserStats == null || UserStats.Count == 0)
+                    {
+                        _LastUserStats = new UserStats();
+                    }
+                    else
+                    {
+                        _LastUserStats = UserStats.OrderByDescending(x => x.CalcDate).FirstOrDefault();
+                    }
+                }
+                return _LastUserStats;
+            }
+        }
     }
 }

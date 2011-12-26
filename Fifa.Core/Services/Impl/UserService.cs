@@ -32,10 +32,6 @@ namespace Fifa.Core.Services.Impl
 
         public void SaveUser(User user)
         {
-            if (user.UserStatsId == 0)
-            {
-                user.UserStats = new UserStats { CalcDate = DateTime.Now };
-            }
             userRepository.SaveUser(user);
         }
 

@@ -37,14 +37,15 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-        <td>@item.UserStats.Wins</td>
-        <td>@item.UserStats.Draws</td>
-        <td>@item.UserStats.Losses</td>
-        <td>@item.UserStats.WinRate</td>
-        <td>@item.UserStats.Elo</td>
+        @*<td>@item.LastUserStats.Games</td>*@
+        <td>@item.LastUserStats.Wins</td>
+        <td>@item.LastUserStats.Draws</td>
+        <td>@item.LastUserStats.Losses</td>
+        <td>@item.LastUserStats.WinRate</td>
+        <td>@item.LastUserStats.Elo</td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("History", "History", new { id = item.Id })
         </td>
     </tr>
 }

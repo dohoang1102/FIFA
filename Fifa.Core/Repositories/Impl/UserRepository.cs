@@ -38,7 +38,10 @@ namespace Fifa.Core.Repositories.Impl
         {
             using (var context = new MainContext())
             {
-                return context.Users.Include("UserStats").OrderByDescending(x => x.UserStats.Elo).ToList();
+                //извините за эту тупость. кто может - решите.
+                var users = context.Users.Include("UserStats").ToList();
+                var list = users.OrderByDescending(x => x.LastUserStats.Elo).ToList();
+                return list;
             }
         }
     }
