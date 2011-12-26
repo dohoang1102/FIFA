@@ -5,9 +5,10 @@
 <h2>Games</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create") |
+    @Html.ActionLink("Game Forecast", "Forecast")
 </p>
-<table class="games">
+<table>
     <tr>
         <th class="">
             Host
@@ -24,20 +25,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td class="host">
-            @item.PlayerA.Name (@item.TeamA.Name)
+            <text class="@(item.ScoreA == item.ScoreB ? "normal-color" : item.ScoreA > item.ScoreB ? "positive-color" : "negative-color")">@item.PlayerA.Name (@item.TeamA.Name)</text>
         </td>
         <td class="centered">@item.ScoreA : @item.ScoreB</td>
         <td class="guest">
-            @item.PlayerB.Name (@item.TeamB.Name)
+            <text class="@(item.ScoreA == item.ScoreB ? "normal-color" : item.ScoreB > item.ScoreA ? "positive-color" : "negative-color")">@item.PlayerB.Name (@item.TeamB.Name)</text>
         </td>
         <td>
-            @item.Date.ToShortDateString()
+            <text class="@(item.Date >= DateTime.Now.Date ? "today-color" : "old-day-color")">@item.Date.ToString("MMM dd, yyyy")</text>
         </td>
         <td>
-            @Html.ActionLink(item.IsReadOnly?"View": "Edit", "Edit", new { id=item.Id })
+            @Html.ActionLink(item.IsReadOnly ? "View": "Edit", "Edit", new { id=item.Id })
             @if(!item.IsReadOnly)
             {
                 <span>| @Html.ActionLink("Delete", "Delete", new { id = item.Id })</span>

@@ -60,6 +60,12 @@
     <Reference Include="EcmaScript.NET.modified">
       <HintPath>..\packages\YUICompressor.NET.1.5.0.0\lib\NET35\EcmaScript.NET.modified.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.4.2.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.Migrations, Version=0.8.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.Migrations.0.8.0.0\lib\net40\EntityFramework.Migrations.dll</HintPath>
+    </Reference>
     <Reference Include="Fasterflect">
       <HintPath>..\packages\fasterflect.2.0.1\lib\net40\Fasterflect.dll</HintPath>
     </Reference>
@@ -71,6 +77,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -100,8 +107,10 @@
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
     <Compile Include="MainContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Game\ForecastViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\combres.xml" />
@@ -127,6 +136,14 @@
     <Content Include="Images\stumbleupon.png" />
     <Content Include="Images\triangle.gif" />
     <Content Include="Images\twitter.png" />
+    <Content Include="Scripts\MiniColors\images\circle.gif" />
+    <Content Include="Scripts\MiniColors\images\gradient.png" />
+    <Content Include="Scripts\MiniColors\images\line.gif" />
+    <Content Include="Scripts\MiniColors\images\rainbow.png" />
+    <Content Include="Scripts\MiniColors\images\trigger.png" />
+    <Content Include="Scripts\MiniColors\jquery.miniColors.css" />
+    <Content Include="Scripts\MiniColors\jquery.miniColors.js" />
+    <Content Include="Scripts\MiniColors\jquery.miniColors.min.js" />
     <Content Include="Styles\reset.css" />
     <Content Include="Styles\styles.css" />
     <Content Include="Global.asax" />
@@ -222,6 +239,8 @@
   <ItemGroup>
     <None Include="combres.readme" />
     <Content Include="Views\Home\Log.cshtml" />
+    <Content Include="Views\Game\Forecast.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\double.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

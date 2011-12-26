@@ -46,6 +46,11 @@ namespace Fifa.Core.Services.Impl
             _UserStatsRepository.SetLastStatsForUser();
         }
 
+        public UserStats GetUserStat(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
         public void CalculateEloAll()
         {
             throw new NotImplementedException();

@@ -249,3 +249,11 @@ DESCRIPTION: A premium business and portfolio theme.
     td                                  {text-align: left;}
     td.host                             {text-align: right;}
     td.guest                            {text-align: left;}
+
+.player-above-limit                     {color: royalblue;}
+.player-below-limit                     {color: black;}
+.positive-color                         {color: seagreen;}
+.negative-color                         {color: orangered;}
+.normal-color                           {color: black;}
+.old-day-color                          {color: grey;}
+.today-color                            {color: black;}

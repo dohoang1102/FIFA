@@ -43,19 +43,19 @@ namespace Fifa.Core.Helpers
         }
 
         /// <summary>
-        /// Gets the chance that player A will win game.
+        /// Calculates the chance that player A will win game.
         /// </summary>
-        public double ChanceToWinPlayerA
+        public double GetChanceToWinPlayerA()
         {
-            get { return calcChanceToWin(_ratingB, _ratingA); }
+            return calcChanceToWin(_ratingB, _ratingA);
         }
 
         /// <summary>
-        /// Gets the chance that player B will win game.
+        /// Calculates the chance that player B will win game.
         /// </summary>
-        public double ChanceToWinPlayerB
+        public double GetChanceToWinPlayerB()
         {
-            get { return calcChanceToWin(_ratingA, _ratingB); }
+            return calcChanceToWin(_ratingA, _ratingB);
         }
 
         /// <summary>
@@ -87,11 +87,14 @@ namespace Fifa.Core.Helpers
         /// </summary>
         public void WinGamePlayerA()
         {
-            _ratingA += _maxGain * (1 - ChanceToWinPlayerA);
+            var chancePlayerA = GetChanceToWinPlayerA();
+            var chancePlayerB = GetChanceToWinPlayerB();
+
+            _ratingA += _maxGain * (1 - chancePlayerA);
 
             if (_ratingB >= _steadyLimit)
             {
-                _ratingB -= _maxGain * ChanceToWinPlayerB;
+                _ratingB -= _maxGain * chancePlayerB;
             }
         }
 
@@ -100,12 +103,15 @@ namespace Fifa.Core.Helpers
         /// </summary>
         public void WinGamePlayerB()
         {
+            var chancePlayerA = GetChanceToWinPlayerA();
+            var chancePlayerB = GetChanceToWinPlayerB();
+
             if (_ratingA >= _steadyLimit)
             {
-                _ratingA -= _maxGain * ChanceToWinPlayerA;
+                _ratingA -= _maxGain * chancePlayerA;
             }
 
-            _ratingB += _maxGain * (1 - ChanceToWinPlayerB);
+            _ratingB += _maxGain * (1 - chancePlayerB);
         }
 
         /// <summary>
@@ -113,8 +119,11 @@ namespace Fifa.Core.Helpers
         /// </summary>
         public void DrawGame()
         {
-            _ratingA += (_maxGain / 2) * (1 - ChanceToWinPlayerA);
-            _ratingB += (_maxGain / 2) * (1 - ChanceToWinPlayerB);
+            var chancePlayerA = GetChanceToWinPlayerA();
+            var chancePlayerB = GetChanceToWinPlayerB();
+
+            _ratingA += (_maxGain / 2) * (1 - chancePlayerA);
+            _ratingB += (_maxGain / 2) * (1 - chancePlayerB);
         }
 
         private static double calcChanceToWin(double rating1, double rating2)

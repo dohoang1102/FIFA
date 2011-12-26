@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Fifa.Core.Models.User>
+﻿@using Fifa.Core.Helpers
+@model IEnumerable<Fifa.Core.Models.User>
 
 @{
     ViewBag.Title = "Index";
@@ -11,6 +12,7 @@
 </p>
 <table>
     <tr>
+        <th></th>
         <th>
             Name
         </th>
@@ -32,20 +34,25 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
+@for (var i = 0; i < Model.Count(); i++)
+{
+    var item = Model.ElementAt(i);
+    var above = (double)item.LastUserStats.Elo >= EloCalculator.SteadyRatingLimit;
+    <tr class="@(above ? "player-above-limit" : "player-below-limit")">
+        <td>
+            @(i + 1)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-        @*<td>@item.LastUserStats.Games</td>*@
         <td>@item.LastUserStats.Wins</td>
         <td>@item.LastUserStats.Draws</td>
         <td>@item.LastUserStats.Losses</td>
         <td>@item.LastUserStats.WinRate</td>
         <td>@item.LastUserStats.Elo</td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("History", "History", new { id = item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
     </tr>
 }
