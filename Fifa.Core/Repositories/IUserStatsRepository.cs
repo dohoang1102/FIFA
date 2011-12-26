@@ -9,7 +9,7 @@ namespace Fifa.Core.Repositories
         void DeleteUserStats(int id);
         void SaveUserStats(UserStats user);
         UserStats GetUserStats(int id);
-        IEnumerable<UserStats> GetAllUserStats();
+        IEnumerable<UserStats> GetAllUserStats(int userId = 0);
         void RemoveAll();
         void SetLastStatsForUser();
     }

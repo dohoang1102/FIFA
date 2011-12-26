@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Fifa.Core.Models.UserStats>
+@{
+    ViewBag.Title = "Games";
+}
+<h2>History</h2>
+
+<table>
+    <tr>
+        <th class="">
+            Host
+        </th>
+        <th>
+            Score
+        </th>
+        <th>
+            Guest
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Wins
+        </th>
+        <th>
+            Draws
+        </th>
+        <th>
+            Losses
+        </th>
+        <th>
+            Rate
+        </th>
+        <th>
+            Elo
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td class="host">
+            <text class="@(item.Game.ScoreA == item.Game.ScoreB ? "normal-color" : item.Game.ScoreA > item.Game.ScoreB ? "positive-color" : "negative-color")">@item.Game.PlayerA.Name (@item.Game.TeamA.Name)</text>
+        </td>
+        <td class="centered">@item.Game.ScoreA : @item.Game.ScoreB</td>
+        <td class="guest">
+            <text class="@(item.Game.ScoreA == item.Game.ScoreB ? "normal-color" : item.Game.ScoreB > item.Game.ScoreA ? "positive-color" : "negative-color")">@item.Game.PlayerB.Name (@item.Game.TeamB.Name)</text>
+        </td>
+        <td>
+            <text class="@(item.Game.Date >= DateTime.Now.Date ? "today-color" : "old-day-color")">@item.Game.Date.ToString("MMM dd, yyyy")</text>
+        </td>
+        <td>@item.Wins</td>
+        <td>@item.Draws</td>
+        <td>@item.Losses</td>
+        <td>@item.WinRate</td>
+        <td>@item.Elo</td>
+    </tr>
+}
+
+</table>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

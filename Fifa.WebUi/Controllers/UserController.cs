@@ -7,28 +7,30 @@ namespace Fifa.WebUi.Controllers
 {
     public class UserController : Controller
     {
-        private readonly IUserService userService;
+        private readonly IUserService _userService;
+        private readonly IHistoryService _historyService;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IHistoryService historyService)
         {
-            this.userService = userService;
+            _userService = userService;
+            _historyService = historyService;
         }
 
         public ActionResult Index()
         {
-            var users = userService.GetAllUsers();
+            var users = _userService.GetAllUsers();
             return View(users);
         }
 
         public ActionResult Create()
         {
-            var user = userService.CreateUser();
+            var user = _userService.CreateUser();
             return View("Edit", user);
         }
 
         public ActionResult Edit(int id)
         {
-            var user = userService.GetUser(id);
+            var user = _userService.GetUser(id);
             return View(user);
         }
 
@@ -37,7 +39,7 @@ namespace Fifa.WebUi.Controllers
         {
             if (ModelState.IsValid)
             {
-                userService.SaveUser(user);
+                _userService.SaveUser(user);
                 return RedirectToAction("Index");
             }
             return View(user);
@@ -45,7 +47,7 @@ namespace Fifa.WebUi.Controllers
 
         public ActionResult Delete(int id)
         {
-            var user = userService.GetUser(id);
+            var user = _userService.GetUser(id);
             return View(user);
         }
 
@@ -54,7 +56,7 @@ namespace Fifa.WebUi.Controllers
         {
             if (ModelState.IsValid)
             {
-                userService.DeleteUser(user);
+                _userService.DeleteUser(user);
                 return RedirectToAction("Index");
             }
             return View(user);
@@ -62,7 +64,8 @@ namespace Fifa.WebUi.Controllers
 
         public ActionResult History(int id)
         {
-            return RedirectToAction("Index");
+            var history = _historyService.GetUserHistory(id);
+            return View(history);
         }
     }
 }

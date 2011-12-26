@@ -35,11 +35,18 @@ namespace Fifa.Core.Repositories.Impl
             }
         }
 
-        public IEnumerable<UserStats> GetAllUserStats()
+        public IEnumerable<UserStats> GetAllUserStats(int userId=0)
         {
             using (var context = new MainContext())
             {
-                return context.UserStats.ToList();
+                return context.UserStats.
+                    Include("Game").
+                    Include("Game.PlayerA").
+                    Include("Game.PlayerB").
+                    Include("Game.TeamA").
+                    Include("Game.TeamB").
+                    WhereIf(userId > 0, x => x.UserId == userId).
+                    ToList();
             }
         }
 
