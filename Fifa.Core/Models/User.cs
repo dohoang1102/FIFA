@@ -21,6 +21,8 @@ namespace Fifa.Core.Models
 
         public int Role { get; set; }
 
+        public string Color { get; set; }
+
         public bool IsAdmin
         {
             get
