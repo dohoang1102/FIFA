@@ -48,7 +48,7 @@ namespace Fifa.Core.Services.Impl
 
         public UserStats GetUserStat(int userId)
         {
-            throw new NotImplementedException();
+            return _UserStatsRepository.GetAllUserStats(userId).OrderByDescending(x => x.CalcDate).FirstOrDefault();
         }
 
         public void CalculateEloAll()
