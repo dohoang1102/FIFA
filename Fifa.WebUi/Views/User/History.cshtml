@@ -1,9 +1,73 @@
-﻿@model IEnumerable<Fifa.Core.Models.UserStats>
+﻿@using System.Text
+@model IEnumerable<Fifa.Core.Models.UserStats>
 @{
     ViewBag.Title = "Games";
 }
 <h2>History</h2>
 
+<link href="@Url.Content("~/Scripts/JqPlot/jquery.jqplot.min.css")" rel="stylesheet" type="text/css" />
+
+<script src="@Url.Content("~/Scripts/JqPlot/jquery.jqplot.js")" type="text/javascript"></script>
+
+<script src="@Url.Content("~/Scripts/JqPlot/plugins/jqplot.dateAxisRenderer.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JqPlot/plugins/jqplot.cursor.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/JqPlot/plugins/jqplot.highlighter.min.js")" type="text/javascript"></script>
+
+
+@{
+    var builder1 = new StringBuilder();
+    var builder2 = new StringBuilder();
+    
+    if (Model.Count() > 0)
+    {
+        foreach (var item in Model)
+        {
+            builder1.AppendFormat(System.Globalization.CultureInfo
+                .GetCultureInfo("en-US"), "['{0:dd-MMM-yy}', {1:0.00}],", @item.Game.Date, item.WinRate);
+            
+            builder2.AppendFormat(System.Globalization.CultureInfo
+                .GetCultureInfo("en-US"), "['{0:dd-MMM-yy}', {1:0.00}],", @item.Game.Date, item.Elo);
+        }     
+    }
+
+    var line1 =  builder1.ToString();
+    var line2 = builder2.ToString();
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+       var line1 = [@MvcHtmlString.Create(line1)];
+       var line2 = [@MvcHtmlString.Create(line2)];
+        
+  var plot1 = $.jqplot('chart1', [line1, line2], {
+      title:'Data Point Highlighting',
+      axes:{
+        xaxis:{
+          renderer:$.jqplot.DateAxisRenderer,
+            tickOptions:{
+            formatString:'%b&nbsp;%#d'
+          } 
+        },
+        yaxis:{
+          tickOptions:{
+            formatString:'%.2f'
+            }
+        }
+      },
+      highlighter: {
+        show: true,
+        sizeAdjust: 7.5
+      },
+      cursor: {
+        show: false
+      }
+  });
+    });
+</script>
+
+<div id="chart1" style="height:300px; width:100%"></div>
+<br />
 <table>
     <tr>
         <th class="">
