@@ -26,6 +26,9 @@ namespace Fifa.Core.Models
 
         public DateTime Date { get; set; }
 
+        public int WorldId { get; set; }
+        public World World { get; set; }
+
         public bool IsReadOnly
         {
             get

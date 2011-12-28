@@ -54,6 +54,7 @@
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserStats.cs" />
+    <Compile Include="Models\World.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Filters\GameFilter.cs" />
     <Compile Include="Repositories\ICommentRepository.cs" />

@@ -36,6 +36,11 @@ namespace Fifa.Core.Services.Impl
 
         public void SaveGame(Game game)
         {
+            //TODO: need to remove this.
+            if (game.WorldId == 0)
+            {
+                game.WorldId = 1;
+            }
             gameRepository.SaveGame(game);
             statsService.CalculateAll();
         }
