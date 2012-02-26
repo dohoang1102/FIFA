@@ -5,7 +5,7 @@ namespace Fifa.Core.Helpers
     /// <summary>
     /// Calculates ratings of the players and their chances to win.
     /// </summary>
-    public class EloCalculator
+    public class EloCalculator2
     {
         public const double MaxRatingGain = 100;
         public const double SteadyRatingLimit = 500;
