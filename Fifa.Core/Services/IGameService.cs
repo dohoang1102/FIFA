@@ -4,7 +4,7 @@ using Fifa.Core.Models;
 
 namespace Fifa.Core.Services
 {
-    public interface IGameService
+    public interface IGameService1
     {
         IEnumerable<Game> GetAllGames();
 
