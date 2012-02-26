@@ -51,16 +51,16 @@ namespace Fifa.WebUi
         /// </param>
         public void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{*aspx}", new { aspx = @".*\.aspx(/.*)?" });
-            routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
+            routes.IgnoreRoute("{*aspx}", new {aspx = @".*\.aspx(/.*)?"});
+            routes.IgnoreRoute("{*favicon}", new {favicon = @"(.*/)?favicon.ico(/.*)?"});
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                "Default", 
+                "Default",
                 // Route name
-                "{controller}/{action}/{id}", 
+                "{controller}/{action}/{id}",
                 // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                new {controller = "Home", action = "Index", id = UrlParameter.Optional} // Parameter defaults
                 );
         }
 
@@ -68,8 +68,8 @@ namespace Fifa.WebUi
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            
+            builder.RegisterControllers(typeof (MvcApplication).Assembly);
+
             var assemblies = AppDomain.CurrentDomain.GetAssemblies()
                 .Where(x => x.FullName.StartsWith("Fifa")).ToArray();
             builder.RegisterAssemblyTypes(assemblies).AsImplementedInterfaces();
@@ -108,10 +108,9 @@ namespace Fifa.WebUi
         /// </param>
         private void MvcApplication_Error(object sender, EventArgs e)
         {
-            LogManager.GetLogger(typeof(MvcApplication))
+            LogManager.GetLogger(typeof (MvcApplication))
                 .Error("Unhandled exception.", Context.Server.GetLastError());
         }
 
         #endregion
     }
-}
